@@ -19,6 +19,7 @@
     <div class="star">&#9733;</div>
     <div class="half" style="border-bottom: 2px solid <%= color %>;"></div>
   </div>
+  Democrats that represent people, not corporations.
   <div id="join">
     <form method="POST" action="/signup?candidate=<%= @candidate %>">
       <input type="hidden" name="_csrf_token" value="<%= csrf_token() %>" />
