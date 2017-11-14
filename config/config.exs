@@ -22,7 +22,7 @@ config :cipher,
   magic_token: "magictoken"
 
 # Cosmic
-config :cosmic, slugs: ["justice-democrats"]
+config :cosmic, slugs: ["justice-democrats", "brand-new-congress"]
 
 # Domains
 config :candidate_website,

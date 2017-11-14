@@ -15,20 +15,6 @@ else: "https://now.justicedemocrats.com/events/"
     We Need You to Power this Revolution
   </h1>
 
-  <div class="event-box">
-    <%= for ev <- @events do %>
-      <div class="event" onclick="window.open('https://now.justicedemocrats.com/events/<%= ev.name %>')">
-        <a href="<%= "#{host_event_base}#{ev.name}" %>" class="button" style="background-color: <%= @highlight_color %>">
-          RSVP
-        </a>
-        <div class="box">
-          <p><strong> <%= ev.title %> </strong> <br/>
-           <%= ev.date_line %> </p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
   <a href="<%= host_event_url %>"
     class="button"
     style="color: white; background-color: <%= @highlight_color %>;
