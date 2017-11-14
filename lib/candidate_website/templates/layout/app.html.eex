@@ -1,4 +1,4 @@
-<% title = assigns[:title] || "#{@name |> String.split(" ") |> List.first()} for #{after_for(@district)}" %>
+<% title = "Justice Democrats: Democrats that Represent the People" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<%= @name %> for <%= after_for(@district) %>">
+    <meta name="description" content="Democrats that represent people, not corporations">
     <meta name="author" content="<%= @name %>">
     <meta name="image" content="<%= URI.encode(@big_picture["imgix_url"]) %>">
 

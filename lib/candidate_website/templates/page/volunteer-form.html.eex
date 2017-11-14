@@ -1,4 +1,4 @@
-<div class="volunteer-form" style="background-color: <%= @primary_color %>">
+<div name="volunteer" class="volunteer-form" style="background-color: <%= @primary_color %>">
   <h2> How Will You Help? </h2>
 
   <form method="post" action="/volunteer?candidate=<%= @candidate %>">

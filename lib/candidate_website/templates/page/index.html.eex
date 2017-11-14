@@ -67,11 +67,7 @@
 <div class="tabs" style="margin-top: 20px;">
   <nav class="tabs-nav">
     <a href="<%= @donate_url %>" class="nav-item contribute"> Contribute </a>
-    <%= if @about_enabled do %>
-      <a href="/about" class="nav-item"> About </a>
-    <% else %>
-      <a href="#why" class="nav-item"> About </a>
-    <% end %>
+    <a href="/about" class="nav-item"> About </a>
     <!-- <div class="separator"></div> -->
     <a href="#issues" class="nav-item"> Platform </a>
     <!-- <div class="separator"></div> -->
@@ -85,7 +81,7 @@
 </div>
 
 <!--  Later add "vote, news, events, store, endorsements" -->
-<%= for chunk <- ["about", "quote", "issues", "donate", "why", "volunteer", "platform", "news", "events"] do %>
+<%= for chunk <- ["about", "donate", "volunteer", "news", "events"] do %>
   <div class="chunk" data-kind="<%= chunk %>">
     <%= render "chunk-#{chunk}.html", assigns %>
   </div>

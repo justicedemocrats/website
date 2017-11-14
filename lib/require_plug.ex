@@ -3,45 +3,24 @@ defmodule CandidateWebsite.RequirePlug do
   import ShortMaps
 
   @required ~w(
-    name district big_picture donate_url facebook twitter intro_statement
-    intro_paragraph issues_header issues_paragraph why_support_header paid_for
-    why_support_body action_shot quote primary_color highlight_color
-    vote_registration_url vote_registration_icon vote_instructions_url
-    vote_instructions_icon vote_location_url vote_location_icon header_background_color
+    name big_picture donate_url facebook twitter intro_statement
+    intro_paragraph issues_header issues_paragraph paid_for
+    quote primary_color highlight_color header_background_color
     general_email press_email platform_header signup_prompt
   )
 
   @optional ~w(
     animation_fill_level target_html hero_text_color before_for_congress
-    why_support_picture instagram
-  )
-
-  @about_attrs ~w(
-    occupation section_one quote_one quote_background_image section_two
-    quote_two quote_side_image section_three headshot
+    instagram
   )
 
   def init(default), do: default
 
   def call(conn, _opts) do
-    params = conn |> fetch_query_params() |> Map.get(:params)
-    global_opts = GlobalOpts.get(conn, params)
-    candidate = Keyword.get(global_opts, :candidate)
+    candidate = "justice-democrats"
 
     %{"metadata" => metadata} = Cosmic.get("homepage-en", candidate)
-
-    # endorsements =
-    #   Cosmic.get_type("endorsements", candidate)
-    #   |> Enum.map(fn %{"metadata" => ~m(organization_name organization_logo endorsement_text)} ->
-    #        ~m(organization_name organization_logo endorsement_text)a
-    #      end)
-
-    %{"metadata" => about_metadata} = Cosmic.get("about-en", candidate)
-
-    about_enabled = (Enum.filter(@about_attrs, (& Map.has_key?(about_metadata, &1))) |> length()) == 9
-    about = Enum.reduce(@about_attrs, %{}, fn key, acc ->
-      Map.put(acc, String.to_atom(key), about_metadata[key])
-    end)
+    %{"content" => about} = Cosmic.get("about-en", candidate)
 
     articles =
       Cosmic.get_type("articles", candidate)
@@ -77,7 +56,7 @@ defmodule CandidateWebsite.RequirePlug do
     mobile = is_mobile?(conn)
 
     # Base, non homepage
-    other_data = ~m(candidate about_enabled about issues mobile articles events)a
+    other_data = ~m(candidate about issues mobile articles events)a
 
     # Add optional attrs
     optional_data = Enum.reduce(@optional, %{}, fn key, acc ->
@@ -98,7 +77,6 @@ defmodule CandidateWebsite.RequirePlug do
 
         conn
         |> Plug.Conn.assign(:data, data)
-        |> Plug.Conn.assign(:enabled, %{about: about_enabled})
 
       non_empty ->
         Phoenix.Controller.text(

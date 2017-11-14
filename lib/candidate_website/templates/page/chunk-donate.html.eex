@@ -1,5 +1,5 @@
 <div id="donate">
-  <h1 style="color: <%=@primary_color %>"> Donate to My Campaign </h1>
+  <h1 style="color: <%=@primary_color %>"> Donate to Our Movement </h1>
   <div id="circles-container">
     <%= for amount <- [9, 19, 29, 49] do %>
       <a style="background-color: <%= @primary_color %>" class="circle" href="<%= @donate_url <> "?amount=#{amount}"%>">
