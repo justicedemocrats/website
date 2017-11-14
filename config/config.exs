@@ -22,36 +22,13 @@ config :cipher,
   magic_token: "magictoken"
 
 # Cosmic
-config :cosmic,
-  slugs: [
-    "alexandria-ocasio-cortez",
-    "alison-hartson",
-    "ben-packer",
-    "adrienne-bell",
-    "anthony-clark",
-    "chardo-richardson",
-    "cori-bush",
-    "letitia-plummer",
-    "paula-jean-swearengin",
-    "sarah-smith",
-    "david-gill",
-    "robb-ryerse",
-    "marc-whitmire"
-  ]
+config :cosmic, slugs: ["justice-democrats"]
 
 # Domains
 config :candidate_website,
   domains: %{
-    "alisonhartson.com" => "alison-hartson",
-    "www.alisonhartson.com" => "alison-hartson",
-    "robb2018.com" => "robb-ryerse",
-    "www.robb2018.com" => "robb-ryerse",
-    "votesarahsmith.com" => "sarah-smith",
-    "www.votesarahsmith.com" => "sarah-smith",
-    "ocasio2018.com" => "alexandria-ocasio-cortez",
-    "www.ocasio2018.com" => "alexandria-ocasio-cortez",
-    "bell2018.com" => "adrienne-bell",
-    "www.bell2018.com" => "adrienne-bell"
+    "www.justicedemocrats.com" => "justice-democrats",
+    "justicedemocrats.com" => "justice-democrats"
   }
 
 jobs =
