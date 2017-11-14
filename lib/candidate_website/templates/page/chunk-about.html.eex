@@ -1,0 +1,39 @@
+<% state = @district |> state() |> String.downcase() %>
+<% show_state = Enum.member?(~w(california), state) %>
+
+<div class="flex">
+  <div>
+    <h1 name="about" style="color: <%=@primary_color %>"> <%= @intro_statement %> </h1>
+    <p style="display: inline;">
+      <%= raw(@intro_paragraph |> String.replace("<p>", "") |> String.replace("</p>", "")) %>
+    </p>
+
+    <%= if @about_enabled do %>
+      <br/>
+      <a href="/about" class="more-about" style="color: <%= @highlight_color %>; ">
+        Read More About Me Here
+      </a>
+    <% end %>
+  </div>
+
+<!--
+  <div class="about-flex">
+    <div style="height: 10%;">
+      <%= raw(@target_html) %>
+    </div>
+    <%= if not @mobile do %>
+      <%= if show_state do %>
+      <div class="flex justify-center" style="position: relative; height: 90%;">
+        <div style="position: absolute; height: 100%;">
+            <%= render "z-#{state}.html", assigns |> Map.put(:filled, false) %>
+          </div>
+          <div id="filled-animate" data-height="100%;" style="position: absolute; height: 0; overflow: hidden;">
+            <%= render "z-#{state}.html", assigns |> Map.put(:filled, true)%>
+          </div>
+        </div>
+        <% end %>
+    <% end %>
+  </div>
+ -->
+
+</div>

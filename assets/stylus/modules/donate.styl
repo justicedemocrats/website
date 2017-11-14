@@ -1,0 +1,60 @@
+#donate
+  min-height 450px
+  text-align center
+  flexbox(flex)
+  justify-content space-around
+  flex-direction(column)
+  padding 25px
+
+  #circles-container
+    flexbox(flex)
+    justify-content space-around
+    align-items(center)
+    height 100%
+
+    .circle
+      height 190px
+      width 190px
+      display block
+      text-decoration none
+      color white
+      font-weight bold
+      border 15px solid white
+      border-radius 50%
+      flexbox(flex)
+      justify-content center
+      align-items(space-around)
+      flex-direction(column)
+
+      .amount
+        font-size 35px
+
+.custom-donation-container
+  flexbox(flex)
+  justify-content center
+
+.mobile
+  .custom-donation-container
+    flex-direction(column)
+    align-items(center)
+    justify-content space-between
+    padding-left 50px
+    padding-right 50px
+    height 100px
+
+  #donate
+    #circles-container
+      flex-direction(column)
+
+      .circle
+        border-radius 0px
+        border none
+        height auto
+        flex-direction(row)
+        align-items(center)
+        justify-content space-around
+        margin-bottom 10px
+
+        .amount
+          width 40%
+          margin-right 10px
