@@ -1,11 +1,15 @@
 <div id="footer">
-  
+
   <div id="paid-for-container">
     <div id="paid-for">
       <%= @paid_for %>
     </div>
   </div>
 
+  <div class="column-center">
+    714 S. Gay Street, Knoxville, TN. 37902.
+  </div>
+  <br/>
   <div class="email-us column-center">
     Email Us
     <div>
@@ -15,4 +19,5 @@
       Press contact: <a href="mailto:<%= @press_email%>" style="color: <%= @primary_color %>;"> <%= @press_email %> </a>
     </div>
   </div>
+
 </div>
