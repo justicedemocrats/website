@@ -59,9 +59,10 @@ defmodule CandidateWebsite.RequirePlug do
     other_data = ~m(candidate about issues mobile articles events)a
 
     # Add optional attrs
-    optional_data = Enum.reduce(@optional, %{}, fn key, acc ->
-      Map.put(acc, String.to_atom(key), metadata[key])
-    end)
+    optional_data =
+      Enum.reduce(@optional, %{}, fn key, acc ->
+        Map.put(acc, String.to_atom(key), metadata[key])
+      end)
 
     # Add required attrs
     case Enum.filter(@required, &(not field_filled(metadata, &1))) do
@@ -71,7 +72,8 @@ defmodule CandidateWebsite.RequirePlug do
             Map.put(acc, String.to_atom(key), metadata[key])
           end)
 
-        data = other_data
+        data =
+          other_data
           |> Map.merge(optional_data)
           |> Map.merge(required_data)
 
