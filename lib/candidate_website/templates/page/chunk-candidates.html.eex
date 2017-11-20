@@ -1,5 +1,5 @@
 <div class="nav-body-container">
-  <div name="volunteer" class="banner-header" style="background-color: <%= @primary_color %>; margin-bottom: 50px;">
+  <div name="candidates" class="banner-header" style="background-color: <%= @primary_color %>; margin-bottom: 50px;">
     <h1> Our Candidates </h1>
   </div>
 
@@ -9,8 +9,12 @@
     tuned for more launches.
   </div>
 
-  <div class="card-container" style="max-height: 700px; overflow-y: scroll;">
-    <%= for cand <- @candidates do %>
+  <a class="button" style="background-color: <%= @primary_color %>;" href="https://now.justicedemocrats.com/candidates">
+    See All Candidates Here
+  </a>
+
+  <div class="card-container" style="">
+    <%= for cand <- Enum.take_random(@candidates, 4) do %>
       <div class="card" href="<%= cand.external_website %>">
         <div class="name-container">
           <%= cand.title %>
@@ -31,6 +35,7 @@
 
   <div style="margin-top: 20px; text-align: center;">
     <strong> Are you running for congress and seeking a Justice Democrats endorsement?</strong>
+    <br/>
     <a class="button" href="https://now.justicedemocrats.com/form/endorsement" style="border: none; background-color: <%= @primary_color %>; margin-top: 10px;">
       Apply to Become a Justice Democrat
     </a>
