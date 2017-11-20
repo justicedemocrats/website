@@ -18,7 +18,11 @@ defmodule CandidateWebsite.PageController do
 
     num_candidates = length(candidates)
 
-    render(conn, "index.html", Enum.into(assigns, [candidates: candidates, num_candidates: num_candidates]))
+    render(
+      conn,
+      "index.html",
+      Enum.into(assigns, candidates: candidates, num_candidates: num_candidates)
+    )
   end
 
   def about(conn, _params) do
