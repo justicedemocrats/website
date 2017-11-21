@@ -5,7 +5,7 @@
 
   <div class="candidate-message" style="margin-top: 20px; margin-bottom: 30px;">
     So far, we've announced <%= @num_candidates %> candidates that are committed to
-    refusing corporate PAC money and fighiting for a progressive vision. Stay
+    refusing corporate PAC money and fighting for a progressive vision. Stay
     tuned for more launches.
   </div>
 
