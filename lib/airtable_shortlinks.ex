@@ -10,7 +10,7 @@ defmodule CandidateWebsite.AirtableShortlinks do
   @off Application.get_env(:candidate_website, :shortener_off, true)
 
   def start_link do
-    Process.send_after(self, :update, @interval)
+    queue_update()
 
     Agent.start_link(
       fn ->
@@ -20,18 +20,20 @@ defmodule CandidateWebsite.AirtableShortlinks do
     )
   end
 
-  def update do
-    receive do
-      :update ->
-        Agent.update(__MODULE__, fn _current ->
-          fetch_all() |> Enum.map(&regexify/1)
-        end)
+  def queue_update do
+    spawn(fn ->
+      :timer.sleep(@interval)
+      update()
+    end)
+  end
 
-        IO.puts("Updated at #{inspect(DateTime.utc_now(0))}")
+  def update() do
+    Agent.update(__MODULE__, fn _current ->
+      fetch_all() |> Enum.map(&regexify/1)
+    end)
 
-        Process.send_after(self, :update, @interval)
-        update()
-    end
+    IO.puts("Fetched airtable updates at #{inspect(DateTime.utc_now())}")
+    queue_update()
   end
 
   def get_all do
