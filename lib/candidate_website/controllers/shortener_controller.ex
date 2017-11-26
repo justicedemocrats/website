@@ -1,39 +1,26 @@
 defmodule CandidateWebsite.ShortenerController do
-  import ShortMaps
-  use CandidateWebsite, :controller
+  use Shorten.Web, :controller
 
-  def index(conn = %{request_path: path}, params) do
-    global_opts = GlobalOpts.get(conn, params)
-    candidate = Keyword.get(global_opts, :candidate)
-
-    route =
-      Cosmic.get_type("shortlinks", candidate)
-      |> Enum.map(fn %{"metadata" => ~m(from to)} -> ~m(from to)a end)
-
+  def index(conn = %{request_path: path}, _params) do
     path = String.downcase(path)
+    routes = Shorten.AirtableCache.get_all()
 
     tuple_or_nil =
-      route
-      |> Enum.map(&prepare/1)
+      routes
       |> Enum.filter(&matches(&1, path))
       |> List.first()
 
     destination =
       case tuple_or_nil do
-        nil -> "homepage-en" |> Cosmic.get(candidate) |> get_in(["metadata", "domain"])
+        nil -> "https://justicedemocrats.com"
         {_, destination} -> destination
       end
 
     redirect(conn, external: https_prefix(destination))
   end
 
-  defp matches({regex, _destination}, path) do
+  defp matches({regex, destination}, path) do
     Regex.run(regex, path) != nil
-  end
-
-  defp prepare(%{from: from_regex, to: to_url}) do
-    {:ok, from} = from_regex |> String.downcase() |> Regex.compile()
-    {from, to_url}
   end
 
   defp https_prefix(url = "http" <> _rest) do
