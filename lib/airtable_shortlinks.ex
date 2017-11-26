@@ -74,7 +74,7 @@ defmodule CandidateWebsite.AirtableShortlinks do
         query: [offset: offset]
       )
 
-    decoded = Poison.decode!(body) |> IO.inspect()
+    decoded = Poison.decode!(body)
 
     new_records =
       decoded["records"]

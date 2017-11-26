@@ -72,8 +72,6 @@ defmodule Cosmic.Migration do
           other_field
       end)
 
-    IO.inspect(new_metafields)
-
     body = %{metafields: new_metafields, slug: "homepage"}
     Cosmic.Api.put("edit-object-type", body: body, slug: slug)
   end
