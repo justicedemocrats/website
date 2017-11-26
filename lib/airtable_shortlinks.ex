@@ -1,11 +1,13 @@
 defmodule CandidateWebsite.AirtableShortlinks do
   use Agent
 
-  @key Application.get_env(:shorten, :airtable_key)
-  @base Application.get_env(:shorten, :airtable_base)
-  @table Application.get_env(:shorten, :airtable_table_name)
+  @key Application.get_env(:candidate_website, :airtable_key)
+  @base Application.get_env(:candidate_website, :airtable_base)
+  @table Application.get_env(:candidate_website, :airtable_table_name)
 
   @interval 60_000
+
+  @off Application.get_env(:candidate_website, :shortener_off, true)
 
   def start_link do
     Process.send_after(self, :update, @interval)
@@ -37,24 +39,28 @@ defmodule CandidateWebsite.AirtableShortlinks do
   end
 
   defp fetch_all() do
-    %{body: body} =
-      HTTPotion.get("https://api.airtable.com/v0/#{@base}/#{@table}", headers: [
-        Authorization: "Bearer #{@key}"
-      ])
-
-    decoded = Poison.decode!(body)
-
-    records =
-      decoded["records"]
-      |> Enum.filter(fn %{"fields" => fields} -> Map.has_key?(fields, "Destination") end)
-      |> Enum.map(fn %{"fields" => %{"Pattern" => from, "Destination" => to}} ->
-           {from, to}
-         end)
-
-    if Map.has_key?(decoded, "offset") do
-      fetch_all(records, decoded["offset"])
+    if @off do
+      []
     else
-      records
+      %{body: body} =
+        HTTPotion.get("https://api.airtable.com/v0/#{@base}/#{@table}", headers: [
+          Authorization: "Bearer #{@key}"
+        ])
+
+      decoded = Poison.decode!(body)
+
+      records =
+        decoded["records"]
+        |> Enum.filter(fn %{"fields" => fields} -> Map.has_key?(fields, "Destination") end)
+        |> Enum.map(fn %{"fields" => %{"Pattern" => from, "Destination" => to}} ->
+             {from, to}
+           end)
+
+      if Map.has_key?(decoded, "offset") do
+        fetch_all(records, decoded["offset"])
+      else
+        records
+      end
     end
   end
 
