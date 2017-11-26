@@ -1,9 +1,9 @@
 defmodule CandidateWebsite.ShortenerController do
-  use Shorten.Web, :controller
+  use CandidateWebsite, :controller
 
   def index(conn = %{request_path: path}, _params) do
     path = String.downcase(path)
-    routes = Shorten.AirtableCache.get_all()
+    routes = CandidateWebsite.AirtableShortlinks.get_all()
 
     tuple_or_nil =
       routes
