@@ -1,0 +1,4 @@
+<div class="privacy" style="padding: 20px;">
+  <%= raw(@content) %>
+</div>
+<%= render "footer.html", assigns %>
