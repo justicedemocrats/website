@@ -136,6 +136,11 @@ defmodule CandidateWebsite.PageController do
     redirect(conn, external: donate_url)
   end
 
+  def privacy(conn, _params) do
+    ~m(content) = Cosmic.get("privacy")
+    render "privacy.html", [content: content]
+  end
+
   defp is_brand(~m(brands), brand), do: Enum.member?(brands, brand)
 
   defp metadata_only(~m(metadata title)) do
