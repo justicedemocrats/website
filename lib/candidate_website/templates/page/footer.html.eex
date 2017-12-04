@@ -16,7 +16,7 @@
       General contact: <a href="mailto:<%= @general_email%>" style="color: <%= @primary_color %>;"> <%= @general_email %> </a>
     </div>
     <div>
-      Press contact: <a href="mailto:<%= @press_email%>" style="color: <%= @primary_color %>;"> <%= @press_email %> </a>
+      <a href="/privacy"> Privacy policy </a>
     </div>
   </div>
 

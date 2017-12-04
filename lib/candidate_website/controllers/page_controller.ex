@@ -137,8 +137,9 @@ defmodule CandidateWebsite.PageController do
   end
 
   def privacy(conn, _params) do
-    ~m(content) = Cosmic.get("privacy")
-    render "privacy.html", [content: content]
+    assigns = Map.get(conn.assigns, :data)
+    ~m(content) = Cosmic.get("privacy", "justice-democrats")
+    render conn, "privacy.html", Enum.into(assigns, [content: content])
   end
 
   defp is_brand(~m(brands), brand), do: Enum.member?(brands, brand)
