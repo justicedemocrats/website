@@ -30,7 +30,11 @@
   </head>
 
   <body>
-    <main class="main <%= if @mobile, do: "mobile", else: "desktop" %>" role="main">
+    <main
+      itemscope="" itemtype="http://schema.org/Organization"
+      class="main <%= if @mobile, do: "mobile", else: "desktop" %>" role="main"
+    >
+      <img itemprop="logo" style="display:none;" src="https://cosmic-s3.imgix.net/c2b9fc10-db98-11e7-bdef-f19a1c0580d6-JD_Avatar_400x400.jpg" />
       <%= render @view_module, @view_template, assigns %>
     </main>
 
@@ -42,14 +46,12 @@
   </script>
 
   <!-- Global Site Tag (gtag.js) - Google Analytics -->
-  <%= if @candidate == "alison-hartson" do %>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
-      gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)};
+    gtag('js', new Date());
 
-      gtag('config', 'UA-107976358-1');
-    </script>
-  <% end %>
+    gtag('config', 'UA-107976358-1');
+  </script>
 </html>
