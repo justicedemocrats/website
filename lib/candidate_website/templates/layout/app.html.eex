@@ -34,6 +34,7 @@
       itemscope="" itemtype="http://schema.org/Organization"
       class="main <%= if @mobile, do: "mobile", else: "desktop" %>" role="main"
     >
+      <a style="display:none;" itemprop="url" href="https://justicedemocrats.com">Justice Democrats</a>
       <img itemprop="logo" style="display:none;" src="https://cosmic-s3.imgix.net/c2b9fc10-db98-11e7-bdef-f19a1c0580d6-JD_Avatar_400x400.jpg" />
       <%= render @view_module, @view_template, assigns %>
     </main>
