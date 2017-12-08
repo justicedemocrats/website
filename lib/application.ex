@@ -13,7 +13,10 @@ defmodule CandidateWebsite.Application do
     children = [
       # Start the endpoint
       supervisor(CandidateWebsite.Endpoint, []),
-      worker(CandidateWebsite.AirtableShortlinks, [])
+      worker(CandidateWebsite.AirtableShortlinks, []),
+      worker(Ak.List, []),
+      worker(Ak.Signup, []),
+      worker(Ak.Petition, [])
     ]
 
     opts = [strategy: :one_for_one, name: CandidateWebsite.Supervisor]
