@@ -15,9 +15,9 @@ use Mix.Config
 # which you typically run after static files are built.
 config :candidate_website, CandidateWebsite.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [scheme: "https", host: "jd-candidate.gigalixirapp.com", port: 4000],
+  url: [scheme: "https", host: "jd-website.gigalixirapp.com", port: 4000],
   check_origin: [
-    "jd-candidate.gigalixirapp.com"
+    "jd-website.gigalixirapp.com"
   ],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/manifest.json",
