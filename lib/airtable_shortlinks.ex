@@ -46,9 +46,13 @@ defmodule CandidateWebsite.AirtableShortlinks do
       []
     else
       %{body: body} =
-        HTTPotion.get("https://api.airtable.com/v0/#{@base}/#{@table}", headers: [
-          Authorization: "Bearer #{@key}"
-        ], query: %{view: @view})
+        HTTPotion.get(
+          "https://api.airtable.com/v0/#{@base}/#{@table}",
+          headers: [
+            Authorization: "Bearer #{@key}"
+          ],
+          query: %{view: @view}
+        )
 
       decoded = Poison.decode!(body)
 
