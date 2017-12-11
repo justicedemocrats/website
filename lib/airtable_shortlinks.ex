@@ -4,6 +4,7 @@ defmodule CandidateWebsite.AirtableShortlinks do
   @key Application.get_env(:candidate_website, :airtable_key)
   @base Application.get_env(:candidate_website, :airtable_base)
   @table Application.get_env(:candidate_website, :airtable_table_name)
+  @view "Grid view"
 
   @interval 60_000
 
@@ -47,7 +48,7 @@ defmodule CandidateWebsite.AirtableShortlinks do
       %{body: body} =
         HTTPotion.get("https://api.airtable.com/v0/#{@base}/#{@table}", headers: [
           Authorization: "Bearer #{@key}"
-        ])
+        ], query: %{view: @view})
 
       decoded = Poison.decode!(body)
 
@@ -73,7 +74,7 @@ defmodule CandidateWebsite.AirtableShortlinks do
         headers: [
           Authorization: "Bearer #{@key}"
         ],
-        query: [offset: offset]
+        query: [offset: offset, view: @view]
       )
 
     decoded = Poison.decode!(body)
