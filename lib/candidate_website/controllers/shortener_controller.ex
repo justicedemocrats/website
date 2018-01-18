@@ -5,6 +5,8 @@ defmodule CandidateWebsite.ShortenerController do
     path = String.downcase(path)
     routes = CandidateWebsite.AirtableShortlinks.get_all()
 
+    IO.inspect(routes)
+
     tuple_or_nil =
       routes
       |> Enum.filter(&matches(&1, path))
