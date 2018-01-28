@@ -15,12 +15,6 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Cipher
-config :cipher,
-  keyphrase: "testiekeyphraseforcipher",
-  ivphrase: "testieivphraseforcipher",
-  magic_token: "magictoken"
-
 # Cosmic
 config :cosmic, slugs: ["justice-democrats", "brand-new-congress"]
 

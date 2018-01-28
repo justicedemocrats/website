@@ -29,5 +29,3 @@ config :logger, level: :info
 config :candidate_website,
   script_src: ~s(<script src="/js/app.js"></script>),
   css_src: ~s(<link rel="stylesheet" href="/css/app.css" media="screen,projection" />)
-
-import_config "prod.secret.exs"
