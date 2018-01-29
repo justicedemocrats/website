@@ -29,3 +29,12 @@ config :logger, level: :info
 config :candidate_website,
   script_src: ~s(<script src="/js/app.js"></script>),
   css_src: ~s(<link rel="stylesheet" href="/css/app.css" media="screen,projection" />)
+
+config :actionkit,
+  base: "${AK_BASE}",
+  username: "${AK_USERNAME}",
+  password: "${AK_PASSWORD}"
+
+config :candidate_website,
+  proxy_base_url: "${PROXY_BASE_URL}",
+  proxy_secret: "${PROXY_SECRET}"

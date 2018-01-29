@@ -43,6 +43,15 @@ config :candidate_website, CandidateWebsite.Endpoint,
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
+config :actionkit,
+  base: "${AK_BASE}",
+  username: "${AK_USERNAME}",
+  password: "${AK_PASSWORD}"
+
+config :candidate_website,
+  proxy_base_url: "${PROXY_BASE_URL}",
+  proxy_secret: "${PROXY_SECRET}"
+
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
