@@ -46,13 +46,3 @@ config :logger, :console, format: "[$level] $message\n"
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
-
-# Configure your database
-config :osdi, Osdi.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  database: "osdi_repo",
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  port: "5432",
-  types: GeoExample.PostgresTypes

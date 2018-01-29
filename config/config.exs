@@ -15,12 +15,6 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Cipher
-config :cipher,
-  keyphrase: "testiekeyphraseforcipher",
-  ivphrase: "testieivphraseforcipher",
-  magic_token: "magictoken"
-
 # Cosmic
 config :cosmic, slugs: ["justice-democrats", "brand-new-congress"]
 
@@ -30,11 +24,6 @@ config :candidate_website,
     "www.justicedemocrats.com" => "justice-democrats",
     "justicedemocrats.com" => "justice-democrats"
   }
-
-jobs =
-  [
-    {"*/2 * * * *", {CandidateWebsite.EventCache, :update, []}}
-  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
