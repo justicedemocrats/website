@@ -1,3 +1,22 @@
 <div class="page-index">
-  <h1>Project Taquito has started.</h1>
+  <header>
+    <div class="donate">
+      <a href="#" class="button dark">Donate</a>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Area A</a></li>
+        <li><a href="#">Area B</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <div class="inner">
+      <h1>Project Taquito, A New Look</h1>
+      <div class="slogan">Tortillas that represent flautas, not tacos.</div>
+      <div class="actions"><a href="#one" class="button dark">Get Started</a></div>
+    </div>
+  </section>
 </div>
