@@ -24,6 +24,11 @@
     <main class="main" role="main">
       <%= render @view_module, @view_template, assigns %>
     </main>
+    <%= {:safe, Application.get_env(
+                :main_website,
+                :script_src,
+                ~s(<script src="http://localhost:8080/js/app.js"></script>)
+              ) } %>
   </body>
 
   <!-- Global Site Tag (gtag.js) - Google Analytics -->
