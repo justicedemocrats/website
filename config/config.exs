@@ -1,14 +1,14 @@
 use Mix.Config
 
 # General application configuration
-config :candidate_website, ecto_repos: [Osdi.Repo]
+config :main_website, ecto_repos: [Osdi.Repo]
 
 # Configures the endpoint
-config :candidate_website, CandidateWebsite.Endpoint,
+config :main_website, MainWebsite.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "bfsqn9AcIMywYeFfFrwwtpRis6Jda9AQdRrc20qyXzQlB4oBV/FA+Isy4jDAB77n",
-  render_errors: [view: CandidateWebsite.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: CandidateWebsite.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: MainWebsite.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: MainWebsite.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -19,7 +19,7 @@ config :logger, :console,
 config :cosmic, slugs: ["justice-democrats", "brand-new-congress"]
 
 # Domains
-config :candidate_website,
+config :main_website,
   domains: %{
     "www.justicedemocrats.com" => "justice-democrats",
     "justicedemocrats.com" => "justice-democrats"

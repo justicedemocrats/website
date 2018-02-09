@@ -30,7 +30,7 @@ end
 # when running `mix release`, the first release in the file
 # will be used by default
 
-release :candidate_website do
-  set version: current_version(:candidate_website)
+release :main_website do
+  set version: current_version(:main_website)
 end
 

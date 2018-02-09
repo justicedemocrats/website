@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :candidate_website, CandidateWebsite.Endpoint,
+config :main_website, MainWebsite.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -29,14 +29,14 @@ config :candidate_website, CandidateWebsite.Endpoint,
   ]
 
 # Watch static and templates for browser reloading.
-config :candidate_website, CandidateWebsite.Endpoint,
+config :main_website, MainWebsite.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/candidate_website/controllers/.*(ex)$},
-      ~r{lib/candidate_website/views/.*(ex)$},
-      ~r{lib/candidate_website/templates/.*(eex)$}
+      ~r{lib/main_website/controllers/.*(ex)$},
+      ~r{lib/main_website/views/.*(ex)$},
+      ~r{lib/main_website/templates/.*(eex)$}
     ]
   ]
 
@@ -48,7 +48,7 @@ config :actionkit,
   username: "${AK_USERNAME}",
   password: "${AK_PASSWORD}"
 
-config :candidate_website,
+config :main_website,
   proxy_base_url: "${PROXY_BASE_URL}",
   proxy_secret: "${PROXY_SECRET}"
 

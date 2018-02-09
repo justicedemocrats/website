@@ -3,7 +3,7 @@ defmodule App.Mixfile do
 
   def project do
     [
-      app: :candidate_website,
+      app: :main_website,
       version: "0.1.10",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -16,7 +16,7 @@ defmodule App.Mixfile do
 
   def application do
     [
-      mod: {CandidateWebsite.Application, []},
+      mod: {MainWebsite.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

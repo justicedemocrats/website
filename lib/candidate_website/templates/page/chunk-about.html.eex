@@ -1,8 +1,0 @@
-<div class="flex">
-  <div>
-    <h1 name="about" style="color: <%=@primary_color %>"> <%= @intro_statement %> </h1>
-    <p style="display: inline;">
-      <%= raw(@intro_paragraph |> String.replace("<p>", "") |> String.replace("</p>", "")) %>
-    </p>
-  </div>
-</div>
