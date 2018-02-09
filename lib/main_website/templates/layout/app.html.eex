@@ -16,19 +16,15 @@
 
     <title>TODO: Project Taquito</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Condensed" rel="stylesheet">
-    <%= {:safe, Application.get_env(:main_website, :css_src, "") } %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Condensed" rel="stylesheet" />
+    <%= {:safe, css_link_tag() } %>
   </head>
 
   <body>
     <main class="main" role="main">
       <%= render @view_module, @view_template, assigns %>
     </main>
-    <%= {:safe, Application.get_env(
-                :main_website,
-                :script_src,
-                ~s(<script src="http://localhost:8080/js/app.js"></script>)
-              ) } %>
+    <%= {:safe, js_script_tag() } %>
   </body>
 
   <!-- Global Site Tag (gtag.js) - Google Analytics -->

@@ -40,6 +40,12 @@ config :main_website, MainWebsite.Endpoint,
     ]
   ]
 
+config :main_website,
+  css_link_tag: "",
+  js_script_tag: ~s(<script src="http://localhost:8080/js/app.js"></script>),
+  proxy_base_url: "${PROXY_BASE_URL}",
+  proxy_secret: "${PROXY_SECRET}"
+
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
@@ -47,10 +53,6 @@ config :actionkit,
   base: "${AK_BASE}",
   username: "${AK_USERNAME}",
   password: "${AK_PASSWORD}"
-
-config :main_website,
-  proxy_base_url: "${PROXY_BASE_URL}",
-  proxy_secret: "${PROXY_SECRET}"
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.

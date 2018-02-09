@@ -7,16 +7,35 @@ and Node 6+.
 
 ## Getting Started
 
-Running it:
 
 ```
-npm install
-mix deps.get
-mix phx.server
+npm run install
+npm run dev
 ```
 
 You will get errors on your form submissions if you don't have Actionkit secret
 keys, but that's ok.
+
+## Commands
+
+Development
+```
+npm run dev
+```
+
+To use with ngrok
+```
+(In main terminal window)
+npm run ngrok
+
+(In another terminal window)
+ngrok http 4000 -hostname=[hostname]
+```
+
+Production
+```
+npm run dev
+```
 
 ## Components
 

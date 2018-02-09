@@ -1,0 +1,27 @@
+{
+  "name": "jd-web",
+  "version": "1.0.0",
+  "description": "Main website for Justice Democrats",
+  "main": "index.js",
+  "directories": {
+    "assets": "assets",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "mix phx.server",
+    "install": "npm install && mix deps.get",
+    "ngrok": "MIX_ENV=ngrok mix phx.server",
+    "prod": "MIX_ENV=prod NODE_ENV=prod mix phx.server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justicedemocrats/website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justicedemocrats/website/issues"
+  },
+  "homepage": "https://github.com/justicedemocrats/website#readme"
+}
