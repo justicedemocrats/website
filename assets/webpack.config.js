@@ -14,7 +14,7 @@ module.exports = (env) => {
   const isDev = !(process.env.MIX_ENV && process.env.MIX_ENV == 'prod');
   const devtool = isDev ? "eval" : "source-map";
 
-  console.log(isDev)
+  console.log('[webpack.config.js] isDev=' + isDev)
 
   return {
     devtool: devtool,
@@ -94,6 +94,18 @@ module.exports = (env) => {
             fallback: "style-loader",
             use: ["css-loader", "stylus-loader"]
           })
+        },
+
+        {
+          // Exposes jQuery for use outside Webpack build
+          test: require.resolve('jquery'),
+          use: [{
+            loader: 'expose-loader',
+            options: 'jQuery'
+          }, {
+            loader: 'expose-loader',
+            options: '$'
+          }]
         }
       ]
     },
@@ -110,7 +122,13 @@ module.exports = (env) => {
       new CopyWebpackPlugin([{
         from: "./static",
         to: path.resolve(__dirname, "../priv/static")
-      }])
+      }]),
+
+      // Provides jQuery for other JS bundled with Webpack
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
+      })
     ] : [
       new CopyWebpackPlugin([{
         from: "./static",
@@ -120,6 +138,12 @@ module.exports = (env) => {
       new ExtractTextPlugin({
         filename: "css/[name].css",
         allChunks: true
+      }),
+
+      // Provides jQuery for other JS bundled with Webpack
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
       }),
 
       new webpack.optimize.UglifyJsPlugin({
