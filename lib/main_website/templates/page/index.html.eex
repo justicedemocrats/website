@@ -1,13 +1,15 @@
 <div class="page-index">
   <header id="header" class="alt">
-    <div class="logo">
-      <a href="#" class="button wide scrolly">Donate</a>
+    <div class="donate">
+      <a href="#" class="button scrolly">Donate</a>
     </div>
     <nav id="nav">
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">Area A</a></li>
         <li><a href="#">Area B</a></li>
+        <li><a href="#">Area C</a></li>
+        <li><a href="#">Area D</a></li>
       </ul>
     </nav>
   </header>
@@ -129,7 +131,7 @@
       <span class="image"></span>
       <h2>"Sed ultrices consequat dolor nulla fringilla dignissim"</h2>
       <div class="author">
-        <span class="name">Jane Doe</span>
+        <span class="name">Candidate Jess</span>
         <span class="title">Ipsum dolor nullam</span>
       </div>
     </article>
@@ -137,7 +139,7 @@
       <span class="image"></span>
       <h2>"Nam velit et lorem porta quis at pulvinar tellus nibh"</h2>
       <div class="author">
-        <span class="name">John Doe</span>
+        <span class="name">Candidate Sunil</span>
         <span class="title">Ipsum dolor nullam</span>
       </div>
     </article>
@@ -190,9 +192,9 @@
         <div class="contact">
           <h2>Contact</h2>
           <ul class="contact-icons">
-            <li class="icon fa-home"><a href="#">1234 Fictional Street #5432<br>Nashville, TN 00000-0000</a></li>
+            <li class="icon fa-home"><a href="#">1234 Fictional Street #5432<br>Knoxville, TN 00000-0000</a></li>
             <li class="icon fa-phone"><a href="#">(000) 000-0000</a></li>
-            <li class="icon fa-envelope-o"><a href="#">info@untitled.tld</a></li>
+            <li class="icon fa-envelope-o"><a href="#">info@justicedemocrats.com</a></li>
           </ul>
           <ul class="icons-bordered">
             <li><a class="icon fa-facebook" href="#">
@@ -229,7 +231,7 @@
         </form>
       </div>
       <div class="copyright">
-        <p>&copy; Untitled. All rights reserved.</p>
+        <p>&copy; Justice Democrats. All rights reserved.</p>
       </div>
     </div>
   </footer>

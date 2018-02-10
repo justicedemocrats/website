@@ -1,4 +1,4 @@
-/* Reset */
+// Reset
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
   margin 0
@@ -39,52 +39,6 @@ blockquote:before, blockquote:after, q:before, q:after
   content ''
   content none
 
-table
-  border-collapse collapse
-  border-spacing 0
-  margin 0 0 2em 0
-  width 100%
-  tbody
-    tr
-      border solid 1px
-      border-left 0
-      border-right 0
-      border-color rgba(144, 144, 144, 0.25)
-      &:nth-child(2n + 1)
-          background-color rgba(144, 144, 144, 0.075)
-  td
-    padding 0.75em 0.75em
-  th
-    font-size 0.9em
-    font-weight 400
-    padding 0 0.75em 0.75em 0.75em
-    text-align left
-    color #333333
-  thead
-    border-bottom solid 2px
-    border-bottom-color rgba(144, 144, 144, 0.25)
-  tfoot
-    border-top solid 2px
-    border-top-color rgba(144, 144, 144, 0.25)
-  &.alt
-    border-collapse separate
-    tbody
-      tr
-        td
-          border solid 1px
-          border-left-width 0
-          border-top-width 0
-          border-color rgba(144, 144, 144, 0.25)
-          &:first-child
-            border-left-width 1px
-        &:first-child
-          td
-            border-top-width 1px
-    thead
-      border-bottom 0
-    tfoot
-      border-top 0
-
 *, *:before, *:after
   -moz-box-sizing border-box
   -webkit-box-sizing border-box
@@ -107,7 +61,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
   -ms-transition none !important
   transition none !important
 
-/* Box */
+// Box
 
 .box
   border-radius 4px
@@ -125,7 +79,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
 		.box > :last-child > :last-child > :last-child
   margin-bottom 0
 
-/* Split */
+// Split
 
 .split
   align-items flex-start
@@ -180,7 +134,55 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
       & > *
         margin-bottom 3em !important
 
-/* Features */
+// Tables
+
+table
+  border-collapse collapse
+  border-spacing 0
+  margin 0 0 2em 0
+  width 100%
+  tbody
+    tr
+      border solid 1px
+      border-left 0
+      border-right 0
+      border-color rgba(144, 144, 144, 0.25)
+      &:nth-child(2n + 1)
+          background-color rgba(144, 144, 144, 0.075)
+  td
+    padding 0.75em 0.75em
+  th
+    font-size 0.9em
+    font-weight 400
+    padding 0 0.75em 0.75em 0.75em
+    text-align left
+    color #333333
+  thead
+    border-bottom solid 2px
+    border-bottom-color rgba(144, 144, 144, 0.25)
+  tfoot
+    border-top solid 2px
+    border-top-color rgba(144, 144, 144, 0.25)
+  &.alt
+    border-collapse separate
+    tbody
+      tr
+        td
+          border solid 1px
+          border-left-width 0
+          border-top-width 0
+          border-color rgba(144, 144, 144, 0.25)
+          &:first-child
+            border-left-width 1px
+        &:first-child
+          td
+            border-top-width 1px
+    thead
+      border-bottom 0
+    tfoot
+      border-top 0
+
+// Features
 
 .features
   flexbox flex
@@ -226,14 +228,14 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
       &:before
         font-size 1.5rem
         top 0.69231em
-      &:nth-child(2n-1)
-          padding-left 2.75em
-          padding-right 2.25em
-      &:nth-child(2n)
-        padding-left 5em
-        padding-right 0
-      &:nth-child(2n):before
-        left 1.38462em
+    & > article:nth-child(2n-1)
+      padding-left 2.75em
+      padding-right 2.25em
+    & > article:nth-child(2n)
+      padding-left 5em
+      padding-right 0
+    & > article:nth-child(2n):before
+      left 1.38462em
 
 @media screen and (max-width: 980px)
   .features
@@ -242,14 +244,14 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
       &:before
         font-size 1.5rem
         top 1.52308em
-      &:nth-child(2n-1)
-          padding-left 3em
-          padding-right 3em
-      &:nth-child(2n)
-        padding-left 6em
-        padding-right 0
-      &:nth-child(2n):before
-        left 1.84615em
+    & > article:nth-child(2n-1)
+      padding-left 3em
+      padding-right 3em
+    & > article:nth-child(2n)
+      padding-left 6em
+      padding-right 0
+    & > article:nth-child(2n):before
+      left 1.84615em
 
 @media screen and (max-width: 480px)
   .features
@@ -280,7 +282,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
 .features > article:before, .features > article h3
   color color-feature-title
 
-/* Stats */
+// Stats
 
 .stats
   display -moz-flex
@@ -352,7 +354,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
       &:nth-last-child(1)
         padding-bottom 1.5em
 
-/* Tabs */
+// Tabs
 
 .tabs
   margin 0 0 2em 0
@@ -451,7 +453,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
         &.active
           padding-top 1em
 
-/* Quotes */
+// Quotes
 
 .quotes
   display -moz-flex
@@ -484,13 +486,14 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
     .author
       margin 0 0 2em 0
       .name
-        color color-dark-gray
+        color color-medium-gray
         display block
         font-size 1.2em
         font-weight 400
         margin 0 0 0.5em 0
       .title
         display block
+        color color-bright-gray
     &:nth-child(odd)
       padding-left calc(50vw - 40em)
       padding-right 3em
@@ -560,7 +563,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
     & > article
       padding 4em 0 2em 0
 
-/* Ratings */
+// Ratings
 
 .ratings
   margin 0 0 2em 0
@@ -634,7 +637,7 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after
   &:before
     background-color currentColor
 
-/* Images */
+// Images
 
 .icon
   text-decoration none
@@ -1313,7 +1316,7 @@ header h4 + p,
     & > .inner
       max-width calc(100% - 3em)
 
-/* Header */
+// Header
 
 #header
   display -moz-flex
@@ -1349,7 +1352,7 @@ header h4 + p,
     text-decoration none
     &:hover
       color #ffffff
-  & > .logo
+  & > .donate
     -moz-flex-grow 1
     -webkit-flex-grow 1
     -ms-flex-grow 1
@@ -1359,6 +1362,10 @@ header h4 + p,
     -ms-flex-shrink 1
     flex-shrink 1
     cursor default
+    .button
+      height 2.5em
+      line-height 2.5em
+      padding 0 1em
     & > *
       display inline-block
       vertical-align middle
@@ -1643,7 +1650,7 @@ header h4 + p,
     nav
       padding 2.5em 1.75em
 
-/* Banner */
+// Banner
 
 #banner
   background-color color-dark-gray
@@ -1819,7 +1826,7 @@ header h4 + p,
   #main
     padding 6em 0 2em 0
 
-/* Footer */
+// Footer
 
 #footer
   background-color color-dark-gray
