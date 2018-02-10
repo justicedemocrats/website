@@ -43,6 +43,7 @@ config :main_website, MainWebsite.Endpoint,
 config :main_website,
   css_link_tag: "",
   js_script_tag: ~s(<script src="http://localhost:8080/js/app.js"></script>),
+  font_path: "../static",
   proxy_base_url: "${PROXY_BASE_URL}",
   proxy_secret: "${PROXY_SECRET}"
 
