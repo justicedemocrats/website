@@ -11,8 +11,9 @@
   "scripts": {
     "dev": "mix phx.server",
     "install": "npm install && mix deps.get",
-    "ngrok": "MIX_ENV=ngrok mix phx.server",
-    "prod": "MIX_ENV=prod NODE_ENV=prod mix phx.server"
+    "ngrok": "npm run webpack && MIX_ENV=ngrok mix phx.server",
+    "prod": "npm run webpack && MIX_ENV=prod NODE_ENV=prod mix phx.server",
+    "webpack": "npm run --prefix assets webpack"
   },
   "repository": {
     "type": "git",
