@@ -1362,10 +1362,10 @@ header h4 + p,
     -ms-flex-shrink 1
     flex-shrink 1
     cursor default
-    .button
-      height 2.5em
-      line-height 2.5em
-      padding 0 1em
+    & > .button
+      height 3em
+      line-height 3em
+      padding 0 1.5em
     & > *
       display inline-block
       vertical-align middle
@@ -1545,6 +1545,10 @@ header h4 + p,
 @media screen and (max-width: 736px)
   #header
     padding 0.5em 0.825em
+    & > .donate .button
+      height 2.5em
+      line-height 2.5em
+      padding 0 1em
     & > .navPanelToggle
       height 2.5em
       line-height 2.5em

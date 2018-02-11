@@ -206,12 +206,6 @@
             <li><a class="icon fa-instagram" href="#">
               <span class="label">Instagram</span>
             </a></li>
-            <li><a class="icon fa-github" href="#">
-              <span class="label">GitHub</span>
-            </a></li>
-            <li><a class="icon fa-linkedin" href="#">
-              <span class="label">LinkedIn</span>
-            </a></li>
           </ul>
         </div>
         <form action="#" method="post">
