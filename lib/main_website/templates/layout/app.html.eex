@@ -22,12 +22,12 @@
         font-family: "FontAwesome";
         font-weight: normal;
         font-style : normal;
-              src : url("<%= {:safe, font_path() }%>/fonts/fontawesome-webfont.eot?v=4.3.0");
-              src : url("<%= {:safe, font_path() }%>/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"),
-                    url("<%= {:safe, font_path() }%>/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"),
-                    url("<%= {:safe, font_path() }%>/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"),
-                    url("<%= {:safe, font_path() }%>/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"),
-                    url("<%= {:safe, font_path() }%>/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+              src : url("<%= static_path() %>/fonts/fontawesome-webfont.eot?v=4.3.0");
+              src : url("<%= static_path() %>/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"),
+                    url("<%= static_path() %>/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"),
+                    url("<%= static_path() %>/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"),
+                    url("<%= static_path() %>/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"),
+                    url("<%= static_path() %>/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
     }
     </style>
     <%= {:safe, css_link_tag() } %>

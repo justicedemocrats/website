@@ -9,7 +9,7 @@ config :main_website, MainWebsite.Endpoint,
 config :main_website,
   css_link_tag: "",
   js_script_tag: "",
-  font_path: ""
+  static_path: ""
 
 # Print only warnings and errors during test
 config :logger, level: :warn

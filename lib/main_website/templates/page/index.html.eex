@@ -14,7 +14,7 @@
     </nav>
   </header>
 
-  <section id="banner">
+  <section id="banner" style="background-image:url('<%= static_path() %>/images/placeholders/pic01.jpg')">
     <div class="inner">
       <h1>Project Taquito, A New Look</h1>
       <div class="slogan">Tortillas that represent flautas, not tacos.</div>
@@ -27,7 +27,7 @@
     <div class="inner">
       <div class="split style1 centered reversed">
         <section>
-          <span class="image fit portrait"></span>
+          <span class="image fit portrait"><img src="<%= static_path() %>/images/placeholders/pic02.jpg" alt="" /></span>
         </section>
         <section>
           <h2>Adipiscing ornare risus morbi est est blandi magna vel euismod tempus</h2>
@@ -92,7 +92,7 @@
                 <li><a href="#" class="button">Learn More</a></li>
               </ul>
             </div>
-            <div class="image"></div>
+            <div class="image"><img src="<%= static_path() %>/images/placeholders/pic05.jpg" alt="" /></div>
           </div>
         </li>
         <li>
@@ -105,7 +105,7 @@
                 <li><a href="#" class="button">Learn More</a></li>
               </ul>
             </div>
-            <div class="image"></div>
+            <div class="image"><img src="<%= static_path() %>/images/placeholders/pic05.jpg" alt="" /></div>
           </div>
         </li>
         <li>
@@ -118,7 +118,7 @@
                 <li><a href="#" class="button">Learn More</a></li>
               </ul>
             </div>
-            <div class="image"></div>
+            <div class="image"><img src="<%= static_path() %>/images/placeholders/pic05.jpg" alt="" /></div>
           </div>
         </li>
       </ul>
@@ -151,7 +151,7 @@
       <div class="split">
         <section>
           <h2>Feugiat lorem ipsum dolor velit amet dolor dignissim pharetra</h2>
-          <span class="image fit"></span>
+          <span class="image fit"><img src="<%= static_path() %>/images/placeholders/pic06.jpg" alt="" /></span>
           <p>Maecenas id feugiat nunc. Integer gravida augue libero, quis pellentesque amet pharetra a. Ut sagittis ipsum nec velit porttitor, sed convallis ligula pellentesque. Mauris et dignissim sem lacinia lorem ipsum dolor.</p>
           <ul class="actions">
             <li><a href="#" class="button">Learn More</a></li>
