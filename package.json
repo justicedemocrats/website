@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "mix phx.server",
-    "install": "npm install && mix deps.get",
+    "install": "npm run --prefix install && mix deps.get",
     "ngrok": "npm run webpack && MIX_ENV=ngrok mix phx.server",
     "prod": "npm run webpack && MIX_ENV=prod NODE_ENV=prod mix phx.server",
     "webpack": "npm run --prefix assets webpack"
