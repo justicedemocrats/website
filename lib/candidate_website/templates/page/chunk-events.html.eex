@@ -1,14 +1,4 @@
-<%
-host_event_url = if String.contains?(@name, "Robb"),
-  do: "https://now.brandnewcongress.org/form/submit-event",
-  else: "https://now.justicedemocrats.com/form/submit-event"
-%>
-
-<%
-host_event_base = if String.contains?(@name, "Robb"),
-  do: "https://now.brandnewcongress.org/events/",
-else: "https://now.justicedemocrats.com/events/"
-%>
+<% host_event_url = "https://jdems.us/host" %>
 
 <div class="full-center" id="events">
   <h1 style="color: <%= @primary_color %>; font-family: 'Montserrat'; font-weight: lighter; text-align: center;">
