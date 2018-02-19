@@ -1,7 +1,6 @@
 // Elements
 
 .page-joined
-  background-color color-bright-gray
   color color-white
   flex 1
 
@@ -10,6 +9,9 @@
 
   h1, h2
     margin 0 0 .5em
+
+  .wrapper
+    background-color color-bright-gray
 
   header.thanks
     text-align center
@@ -25,7 +27,7 @@
     justify-content space-around
     align-items center
     max-width calc(100% - 10em)
-    margin 3.5em auto 6em
+    margin 3.5em auto 0
     padding 1.5em
     h2
       margin 0
@@ -38,5 +40,18 @@
     padding 1.5em
     margin 1.5em auto
 
-  .volunteer
-    margin-top 3em
+@media screen and (max-width: 736px)
+  .page-joined
+    .wrapper
+      padding: 1.5em 0 3em 0
+    .donate-form
+      flex-direction column
+      max-width none
+      margin 2em 0 0
+      .button
+        margin-top 1.5em
+    .volunteer
+      form
+        max-width none
+        h2
+          margin-bottom 2em
