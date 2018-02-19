@@ -18,7 +18,17 @@
     <div class="inner">
       <h1>Project Taquito, A New Look</h1>
       <div class="slogan">Tortillas that represent flautas, not tacos.</div>
-      <div class="actions"><a href="#one" class="button wide scrolly">Get Started</a></div>
+
+      <div id="signup">
+        <div class="inner">
+          <h2>Ready to get involved?</h2>
+          <div class="actions">
+            <input type="email" placeholder="Email" />
+            <input type="text" placeholder="Zip" />
+            <a href="#" class="button scrolly">Join The Team</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
