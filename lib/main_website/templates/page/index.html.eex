@@ -1,22 +1,9 @@
 <div class="page-index">
-  <header id="header" class="alt">
-    <div class="donate">
-      <a href="#" class="button scrolly">Donate</a>
-    </div>
-    <nav id="nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Area A</a></li>
-        <li><a href="#">Area B</a></li>
-        <li><a href="#">Area C</a></li>
-        <li><a href="#">Area D</a></li>
-      </ul>
-    </nav>
-  </header>
+  <%= render MainWebsite.SharedView, "header.html", assigns %>
 
   <section id="banner" style="background-image:url('<%= static_path() %>/images/placeholders/pic01.jpg')">
     <div class="inner">
-      <h1>Project Taquito, A New Look</h1>
+      <h1>Justice Taquitos' Redesign</h1>
       <div class="slogan">Tortillas that represent flautas, not tacos.</div>
 
       <div id="signup">
@@ -25,7 +12,7 @@
           <div class="actions">
             <input type="email" placeholder="Email" />
             <input type="text" placeholder="Zip" />
-            <a href="#" class="button scrolly">Join The Team</a>
+            <%= link "Join The Team", to: page_path(@conn, :joined), class: "button scrolly" %>
           </div>
         </div>
       </div>
@@ -195,49 +182,6 @@
     </div>
   </section>
 
-	<!-- Footer -->
-  <footer id="footer">
-    <div class="inner">
-      <div class="split style1">
-        <div class="contact">
-          <h2>Contact</h2>
-          <ul class="contact-icons">
-            <li class="icon fa-home"><a href="#">1234 Fictional Street #5432<br>Knoxville, TN 00000-0000</a></li>
-            <li class="icon fa-phone"><a href="#">(000) 000-0000</a></li>
-            <li class="icon fa-envelope-o"><a href="#">info@justicedemocrats.com</a></li>
-          </ul>
-          <ul class="icons-bordered">
-            <li><a class="icon fa-facebook" href="#">
-              <span class="label">Facebook</span>
-            </a></li>
-            <li><a class="icon fa-twitter" href="#">
-              <span class="label">Twitter</span>
-            </a></li>
-            <li><a class="icon fa-instagram" href="#">
-              <span class="label">Instagram</span>
-            </a></li>
-          </ul>
-        </div>
-        <form action="#" method="post">
-          <h2>Email Us</h2>
-          <div class="field half first">
-            <input name="name" id="name" placeholder="Name" type="text" />
-          </div>
-          <div class="field half">
-            <input name="email" id="email" placeholder="Email" type="email" />
-          </div>
-          <div class="field">
-            <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-          </div>
-          <ul class="actions">
-            <li><input value="Send Message" class="button" type="submit" /></li>
-          </ul>
-        </form>
-      </div>
-      <div class="copyright">
-        <p>&copy; Justice Democrats. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <%= render MainWebsite.SharedView, "footer.html", assigns %>
 
 </div>

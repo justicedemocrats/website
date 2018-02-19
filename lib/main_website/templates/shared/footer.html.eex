@@ -1,0 +1,43 @@
+<footer id="footer">
+  <div class="inner">
+    <div class="split style1">
+      <div class="contact">
+        <h2>Contact</h2>
+        <ul class="contact-icons">
+          <li class="icon fa-home"><a href="#">1234 Fictional Street #5432<br>Knoxville, TN 00000-0000</a></li>
+          <li class="icon fa-phone"><a href="#">(000) 000-0000</a></li>
+          <li class="icon fa-envelope-o"><a href="#">info@justicedemocrats.com</a></li>
+        </ul>
+        <ul class="icons-bordered">
+          <li><a class="icon fa-facebook" href="#">
+            <span class="label">Facebook</span>
+          </a></li>
+          <li><a class="icon fa-twitter" href="#">
+            <span class="label">Twitter</span>
+          </a></li>
+          <li><a class="icon fa-instagram" href="#">
+            <span class="label">Instagram</span>
+          </a></li>
+        </ul>
+      </div>
+      <form action="<%= page_path(@conn, :joined) %>" method="get">
+        <h2>Ready to get involved?</h2>
+        <div class="field">
+          <input name="name" placeholder="Name" type="text" />
+        </div>
+        <div class="field half first">
+          <input name="email" placeholder="Email" type="email" />
+        </div>
+        <div class="field half">
+          <input name="zip" placeholder="Zip" type="text" />
+        </div>
+        <ul class="actions">
+          <li><%= button "Join the team", to: page_path(@conn, :joined), class: "button" %></li>
+        </ul>
+      </form>
+    </div>
+    <div class="copyright">
+      <p>&copy; Justice Democrats. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
