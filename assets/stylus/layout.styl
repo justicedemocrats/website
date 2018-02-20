@@ -1388,9 +1388,20 @@ header h4 + p,
       list-style-type none
       margin 0
       padding 0
+      & > li.active
+        &:after
+          content "•"
+          display block
+          position absolute
+          width 100%
+          text-align center
+          font-size 18pt
+          line-height 0
+          margin-top .3em
       & > li
         margin-left 2.25em
         padding 0
+        position relative
         & > ul
           display none
     a
