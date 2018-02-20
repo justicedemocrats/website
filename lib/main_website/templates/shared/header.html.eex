@@ -1,16 +1,16 @@
-<header id="header"<%= if is_current_path(@conn, :index) do %> class="alt"<% end %>>
+<header id="header"<%= if @is_current_path.(@conn, :index) do %> class="alt"<% end %>>
   <div class="donate">
-    <a href="#" class="button scrolly">Donate</a>
+    <a target="_blank" href="<%= donate_url() %>" class="button scrolly">Donate</a>
   </div>
   <nav id="nav">
     <ul>
-      <%= if not is_current_path(@conn, :index) do %>
+      <%= if not @is_current_path.(@conn, :index) do %>
       <%= render MainWebsite.SharedView, "nav_link.html", conn: @conn, label: "Home", action: :index %>
       <% end %>
       <%= render MainWebsite.SharedView, "nav_link.html", conn: @conn, label: "About", action: :about %>
       <%= render MainWebsite.SharedView, "nav_link.html", conn: @conn, label: "Candidates", action: :candidates %>
       <%= render MainWebsite.SharedView, "nav_link.html", conn: @conn, label: "Issues", action: :issues %>
-      <li><a href="#">Store</a></li>
+      <li><a target="_blank" href="<%= store_url() %>">Store</a></li>
     </ul>
   </nav>
 </header>

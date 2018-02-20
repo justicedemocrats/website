@@ -1,7 +1,6 @@
 defmodule MainWebsite.SharedView do
   use MainWebsite, :view
 
-  def is_current_path(conn, action) do
-    Phoenix.Controller.current_path(conn) == page_path(conn, action)
-  end
+  def donate_url(), do: "https://secure.actblue.com/donate/justicedemocrats"
+  def store_url(), do: "https://shop.justicedemocrats.com/"
 end

@@ -3,7 +3,7 @@
 
   <section id="banner" style="background-image:url('<%= static_path() %>/images/placeholders/pic01.jpg')">
     <div class="inner">
-      <h1>Justice Taquitos' Redesign</h1>
+      <h1><%= @title %></h1>
       <div class="slogan">Tortillas that represent flautas, not tacos.</div>
 
       <div id="signup">
