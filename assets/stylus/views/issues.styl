@@ -1,0 +1,45 @@
+// Elements
+
+.page-issues
+  .wrapper .inner
+    flexbox flex
+  .issue
+    h2
+      margin 2em 0 .5em
+  .content-col
+    flex .6
+  .toc-col
+    flex .4
+    margin-left 2.5em
+    margin-top 1.5em
+    text-align center
+    position relative
+    h3
+      background: #fff;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      padding: 0 1em;
+    ul
+      border 1px solid color-bright-gray
+      padding 2em 0
+      list-style none
+      li
+        padding .2em 1em
+        text-align center
+        position relative
+        display block
+        box-sizing border-box
+        &:after
+          content "•"
+          display block
+          text-align center
+          font-size 18pt
+          line-height 0
+          margin .4em 0 .3em
+        &:last-child
+          &:after
+            display none
+
+
