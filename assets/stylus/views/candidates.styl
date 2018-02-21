@@ -1,0 +1,28 @@
+// Elements
+
+.page-candidates
+  .header
+    h1, h2
+      margin 0
+  .teasers
+    flexbox flex
+    margin .5em 0
+    .teaser
+      height 120px
+      overflow hidden
+      margin .1em
+      width calc(100%/5)
+      &:first-child
+        margin-left 0
+      &:last-child
+        margin-right 0
+  .candidates
+    margin-top 2em
+    .candidate
+      padding-bottom 2.5em
+      border-bottom 1px solid #ccc
+      margin-bottom 2.5em
+      h2
+        margin-bottom .2em
+      &:last-child
+        border-bottom 0
