@@ -1,0 +1,32 @@
+// Elements
+
+.page-about
+  .teammate
+    margin-bottom 2em
+    h2
+      margin 0
+    .role
+      margin .2em 0 1em
+    .content
+      flexbox flex
+      p
+        flex 1
+    .portrait
+      width 200px
+      height 200px
+      overflow hidden
+      margin-right 2em
+  .question-set
+    margin-bottom 2em
+    border-bottom 1px solid rgba(0,0,0,0.1)
+    h2
+      margin 0 0 .5em
+      font-size 1.45em
+    &:last-child
+      border-bottom 0
+
+@media screen and (max-width: 736px)
+  .page-about
+    .teammate
+      .content
+        flex-direction column
