@@ -93,6 +93,7 @@ defmodule CandidateWebsite.PageController do
   defp preprocess(candidate) do
     ~m(district external_website website_blurb title small_picture) = candidate
     small_picture = ~s("#{URI.encode(small_picture["imgix_url"])}")
+    district = candidate["district_display"] || district
     ~m(district external_website website_blurb small_picture title)a
   end
 
