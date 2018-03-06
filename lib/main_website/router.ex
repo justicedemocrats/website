@@ -15,6 +15,7 @@ defmodule MainWebsite.Router do
     get("/", PageController, :index)
     get("/about", PageController, :about)
     get("/candidates", PageController, :candidates)
+    get("/start", PageController, :get_started)
     get("/issues", PageController, :issues)
     get("/joined", PageController, :joined)
   end

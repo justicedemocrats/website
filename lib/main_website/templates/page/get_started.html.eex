@@ -1,0 +1,35 @@
+<div class="page-get-started">
+  <%= render MainWebsite.SharedView, "header.html", assigns %>
+
+  <!-- Main -->
+  <section id="main" class="wrapper">
+    <div class="inner">
+      <div class="content-col">
+        <header>
+          <h1><b>Get started</b></h1>
+          <p>You can make a difference by connecting voters and raising awareness.</p>
+        </header>
+        <div class="actions">
+          <div class="action">
+            <h2>Call for a candidate</h2>
+            <a target="_blank" href="" class="button scrolly">Start a call</a>
+            <div class="prompt">Make their names known</div>
+          </div>
+          <div class="action">
+            <h2>Attend an event</h2>
+            <a target="_blank" href="" class="button scrolly">See all events</a>
+            <div class="prompt">You can also host one near you</div>
+          </div>
+          <div class="action">
+            <h2>Join a team</h2>
+            <a target="_blank" href="" class="button scrolly">Find a team</a>
+            <div class="prompt">Get help and win elections</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%= render MainWebsite.SharedView, "footer.html", assigns %>
+
+</div>

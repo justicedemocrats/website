@@ -5,12 +5,12 @@
   <nav id="nav">
     <ul>
       <%= if not @is_current_path.(@conn, :index) do %>
-      <%= render MainWebsite.SharedView, "nav_link.html", conn: @conn, label: "Home", action: :index %>
+      <%= MainWebsite.SharedView.render_nav_item(@conn, "Home", :index) %>
       <% end %>
-      <%= render MainWebsite.SharedView, "nav_link.html", conn: @conn, label: "About", action: :about %>
-      <%= render MainWebsite.SharedView, "nav_link.html", conn: @conn, label: "Candidates", action: :candidates %>
-      <%= render MainWebsite.SharedView, "nav_link.html", conn: @conn, label: "Issues", action: :issues %>
-      <li><a target="_blank" href="<%= store_url() %>">Store</a></li>
+      <%= MainWebsite.SharedView.render_nav_item(@conn, "About", :about) %>
+      <%= MainWebsite.SharedView.render_nav_item(@conn, "Candidates", :candidates) %>
+      <%= MainWebsite.SharedView.render_nav_item(@conn, "Issues", :issues) %>
+      <%= MainWebsite.SharedView.render_nav_item(@conn, "Get started", :get_started) %>
     </ul>
   </nav>
 </header>

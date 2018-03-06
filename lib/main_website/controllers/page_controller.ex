@@ -4,6 +4,7 @@ defmodule MainWebsite.PageController do
   def index(conn, _params), do: render_page(conn, "index.html")
   def about(conn, _params), do: render_page(conn, "about.html")
   def candidates(conn, _params), do: render_page(conn, "candidates.html")
+  def get_started(conn, _params), do: render_page(conn, "get_started.html")
   def issues(conn, _params), do: render_page(conn, "issues.html")
   def joined(conn, _params), do: render_page(conn, "joined.html")
 
