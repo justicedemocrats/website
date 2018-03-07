@@ -5,6 +5,8 @@ defmodule MainWebsite.PageController do
   def about(conn, _params), do: render_page(conn, "about.html")
   def candidates(conn, _params), do: render_page(conn, "candidates.html")
   def calling(conn, _params), do: render_page(conn, "calling.html")
+  def calling_script(conn, _params), do: render_page(conn, "calling_script.html")
+  def calling_dialer(conn, _params), do: render_page(conn, "calling_dialer.html")
   def get_started(conn, params), do: render_page(conn, "get_started.html", emailed: params["emailed"] === "yes")
   def issues(conn, _params), do: render_page(conn, "issues.html")
   def joined(conn, _params), do: render_page(conn, "joined.html")

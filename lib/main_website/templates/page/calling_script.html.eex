@@ -5,13 +5,13 @@
   <section id="main" class="wrapper">
     <div class="inner">
       <div class="content-col">
-        <%= link "↞ Back to \"Get started\"", to: page_path(@conn, :get_started), class: "back-link" %>
+        <%= link "↞ Back to \"Choose a candidate\"", to: page_path(@conn, :calling), class: "back-link" %>
         <%= MainWebsite.SharedView.render_calling_header(@conn) %>
-        <div class="candidate-chooser">
-          <p>CANDIDATES GO HERE</p>
+        <div class="calling-script">
+          <p>CALLING SCRIPT GOES HERE</p>
         </div>
         <div class="next-action">
-          <%= link "Next: Review a script", to: page_path(@conn, :calling_script), class: "button scrolly" %>
+          <%= link "Next: Use our dialer", to: page_path(@conn, :calling_dialer), class: "button scrolly" %>
         </div>
       </div>
     </div>

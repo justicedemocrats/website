@@ -1,0 +1,24 @@
+<div class="page-calling">
+  <%= render MainWebsite.SharedView, "header.html", assigns %>
+
+  <!-- Main -->
+  <section id="main" class="wrapper">
+    <div class="inner">
+      <div class="content-col">
+        <%= link "↞ Back to \"Review the script\"", to: page_path(@conn, :calling_script), class: "back-link" %>
+        <%= MainWebsite.SharedView.render_calling_header(@conn) %>
+        <div class="dialer-action">
+          <h3>Calling for Candidate X</h3>
+          <%= link "Start dialer", to: page_path(@conn, :calling), class: "button scrolly" %>
+          <p>Create a login if you don't have one already</p>
+        </div>
+        <div class="calling-script">
+          <p>CALLING SCRIPT GOES HERE</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%= render MainWebsite.SharedView, "footer.html", assigns %>
+
+</div>

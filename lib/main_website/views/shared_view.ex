@@ -5,6 +5,10 @@ defmodule MainWebsite.SharedView do
   def store_url(), do: "https://shop.justicedemocrats.com/"
   def host_event_url(), do: "https://jdems.us/host"
 
+  def render_calling_header(conn) do
+    render "calling_header.html", conn: conn
+  end
+
   def render_nav_item(conn, label, action) do
     render "nav_link.html",
       conn: conn,
