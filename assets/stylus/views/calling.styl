@@ -1,0 +1,69 @@
+// Elements
+
+.page-calling
+  .wrapper .inner
+    flexbox flex
+    .content-col
+      flex 1
+  header
+    h1
+      font-size 2em
+      letter-spacing 3px
+  .back-link
+    text-decoration none
+    font-size .8em
+    color color-medium-gray
+    margin-bottom 1em
+    display block
+    margin-top -1em
+  .actions
+    flexbox flex
+    justify-content space-between
+    .action
+      flex 1
+      border-right 1px solid color-medium-gray
+      margin-right 3.5em
+      position relative
+      flexbox flex
+      flex-direction column
+      opacity .27
+      &.active
+        opacity 1
+      header
+        flexbox flex
+        justify-content space-between
+        margin-right 2em
+        ins
+          text-decoration none
+          display block
+        h2
+          font-weight 400
+          max-width 6em
+          letter-spacing 2px
+      .fa
+        font-size 3em
+    .action:last-child
+      margin-right 0
+      border-right 0
+  .candidate-chooser
+    margin-top 2em
+
+@media screen and (max-width: 810px)
+  .page-calling
+    .actions
+      flex-direction column
+      .action
+        border-right 0
+        border-bottom 1px solid color-medium-gray
+        margin-right 0
+        margin-bottom 2em
+        padding-bottom 0
+        header
+          margin-right 0
+          align-items center
+          ins
+            font-size 1.3em
+          h2
+            max-width inherit
+          .fa
+            font-size 3em
