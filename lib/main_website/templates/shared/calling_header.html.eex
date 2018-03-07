@@ -2,22 +2,28 @@
   <h1><b>Prepare call</b></h1>
 </header>
 <div class="actions">
-  <div class="action<%= if @conn.assigns.is_current_path.(@conn, :calling) do %> active<% end %>">
+  <a
+    href="<%= page_path(@conn, :calling) %>"
+    class="action<%= if @conn.assigns.is_current_path.(@conn, :calling) do %> active<% end %>">
     <header>
       <h2><ins>1.</ins>Choose a candidate</h2>
       <span class="fa fa-users"></span>
     </header>
-  </div>
-  <div class="action<%= if  @conn.assigns.is_current_path.(@conn, :calling_script) do %> active<% end %>">
+  </a>
+  <a
+    href="<%= page_path(@conn, :calling_script) %>"
+    class="action<%= if @conn.assigns.is_current_path.(@conn, :calling_script) do %> active<% end %>">
     <header>
       <h2><ins>2.</ins>Review the script</h2>
       <span class="fa fa-file-text-o"></span>
     </header>
-  </div>
-  <div class="action<%= if  @conn.assigns.is_current_path.(@conn, :calling_dialer) do %> active<% end %>">
+  </a>
+  <a
+    href="<%= page_path(@conn, :calling_dialer) %>"
+    class="action<%= if @conn.assigns.is_current_path.(@conn, :calling_dialer) do %> active<% end %>">
     <header>
       <h2><ins>3.</ins>Use the dialer</h2>
       <span class="fa fa-phone"></span>
     </header>
-  </div>
+  </a>
 </div>

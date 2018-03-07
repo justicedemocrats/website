@@ -8,7 +8,7 @@
         <%= link "↞ Back to \"Review the script\"", to: page_path(@conn, :calling_script), class: "back-link" %>
         <%= MainWebsite.SharedView.render_calling_header(@conn) %>
         <div class="dialer-action">
-          <h3>Calling for Candidate X</h3>
+          <h3>Call for Candidate X</h3>
           <%= link "Start dialer", to: page_path(@conn, :calling), class: "button scrolly" %>
           <p>Create a login if you don't have one already</p>
         </div>
