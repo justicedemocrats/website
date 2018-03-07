@@ -20,7 +20,7 @@
           </a></li>
         </ul>
       </div>
-      <form action="<%= page_path(@conn, :joined) %>" method="get">
+      <form action="<%= page_path(@conn, :get_started) %>" method="get">
         <h2>Ready to get involved?</h2>
         <div class="field">
           <input name="name" placeholder="Name" type="text" />
@@ -31,8 +31,9 @@
         <div class="field half">
           <input name="zip" placeholder="Zip" type="text" />
         </div>
+        <input name="emailed" value="yes" type="hidden" />
         <ul class="actions">
-          <li><%= button "Join the team", to: page_path(@conn, :joined), class: "button" %></li>
+          <li><%= button "Join the team", to: page_path(@conn, :get_started), class: "button" %></li>
         </ul>
       </form>
     </div>

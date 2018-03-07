@@ -5,6 +5,7 @@
   <section id="main" class="wrapper">
     <div class="inner">
       <div class="content-col">
+        <%= if @emailed do %><div class="thanks">Welcome! We'll keep you updated.</div><% end %>
         <header>
           <h1><b>Get started</b></h1>
           <p class="why">You can make a difference by connecting voters and raising awareness.</p>

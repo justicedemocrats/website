@@ -4,7 +4,7 @@ defmodule MainWebsite.PageController do
   def index(conn, _params), do: render_page(conn, "index.html")
   def about(conn, _params), do: render_page(conn, "about.html")
   def candidates(conn, _params), do: render_page(conn, "candidates.html")
-  def get_started(conn, _params), do: render_page(conn, "get_started.html")
+  def get_started(conn, params), do: render_page(conn, "get_started.html", emailed: params["emailed"] === "yes")
   def issues(conn, _params), do: render_page(conn, "issues.html")
   def joined(conn, _params), do: render_page(conn, "joined.html")
 
@@ -14,9 +14,9 @@ defmodule MainWebsite.PageController do
     |> assign(:is_current_path, fn(conn, action) -> current_path(conn) == page_path(conn, action) end)
   end
 
-  defp render_page(conn, filename) do
+  defp render_page(conn, filename, opts \\ []) do
     conn
     |> assign_template_data
-    |> render(filename)
+    |> render(filename, opts)
   end
 end
