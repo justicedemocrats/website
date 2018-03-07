@@ -53,7 +53,7 @@
     .button
       flex 1
   .candidate-chooser
-    margin-top 2em
+    margin 2em 0
   .dialer-action
     flexbox flex
     flex-direction column
@@ -70,7 +70,57 @@
     p
       margin 0
 
+.candidate-chooser
+  .candidates
+    flexbox flex
+    flex-wrap wrap
+    margin-left -6px
+  .candidate
+    margin-bottom 8px
+    width calc(25% - 10px)
+    padding 4px
+    cursor pointer
+    flexbox flex
+    overflow hidden
+    border 1px solid transparent
+    &:hover
+      border 1px solid color-medium-gray
+    &.active
+      border 1px solid color-medium-dark-gray
+    .location
+      flexbox flex
+      text-transform uppercase
+      color color-medium-gray
+      font-size .8em
+      letter-spacing 2px
+      white-space nowrap
+      overflow hidden
+      .state
+        &:after
+          content "•"
+          display inline-block
+          font-weight 400
+          margin 0 .3em
+    .name
+      font-size 1em
+      line-height 1.2em
+      font-weight 400
+      letter-spacing 1px
+    .photo
+      width 3em
+      height 3em
+      min-width 3em
+      overflow hidden
+      margin-right .5em
+      img
+        width 3em
+        height 3em
+
 @media screen and (max-width: 810px)
+  .candidate-chooser
+    .candidate
+      margin-bottom 8px
+      width calc(50% - 6px)
   .page-calling
     .actions
       flex-direction column
@@ -92,3 +142,9 @@
             max-width inherit
           .fa
             font-size 3em
+
+@media screen and (max-width: 548px)
+  .candidate-chooser
+    .candidate
+      margin-bottom 8px
+      width 100%

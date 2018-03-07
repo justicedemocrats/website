@@ -8,7 +8,7 @@
         <%= link "↞ Back to \"Get started\"", to: page_path(@conn, :get_started), class: "back-link" %>
         <%= MainWebsite.SharedView.render_calling_header(@conn) %>
         <div class="candidate-chooser">
-          <p>CANDIDATES GO HERE</p>
+          <%= MainWebsite.SharedView.render_candidate_chooser(@conn) %>
         </div>
         <div class="next-action">
           <%= link "Next: Review a script", to: page_path(@conn, :calling_script), class: "button scrolly" %>

@@ -1,5 +1,6 @@
 defmodule MainWebsite.SharedView do
   use MainWebsite, :view
+  alias MainWebsite.{Candidates}
 
   def donate_url(), do: "https://secure.actblue.com/donate/justicedemocrats"
   def store_url(), do: "https://shop.justicedemocrats.com/"
@@ -7,6 +8,12 @@ defmodule MainWebsite.SharedView do
 
   def render_calling_header(conn) do
     render "calling_header.html", conn: conn
+  end
+
+  def render_candidate_chooser(conn) do
+    render "candidate_chooser.html",
+      conn: conn,
+      candidates: Candidates.all()
   end
 
   def render_nav_item(conn, label, action) do
