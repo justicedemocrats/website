@@ -7,23 +7,32 @@
       <div class="content-col">
         <header>
           <h1><b>Get started</b></h1>
-          <p>You can make a difference by connecting voters and raising awareness.</p>
+          <p class="why">You can make a difference by connecting voters and raising awareness.</p>
         </header>
         <div class="actions">
           <div class="action">
-            <h2>Call for a candidate</h2>
+            <header>
+              <h2>Call for a candidate</h2>
+              <span class="fa fa-phone"></span>
+            </header>
             <a target="_blank" href="" class="button scrolly">Start a call</a>
             <div class="prompt">Make their names known</div>
           </div>
           <div class="action">
-            <h2>Attend an event</h2>
+            <header>
+              <h2>Attend an event</h2>
+              <span class="fa fa-calendar-check-o"></span>
+            </header>
             <a target="_blank" href="" class="button scrolly">See all events</a>
             <div class="prompt">You can also host one near you</div>
           </div>
           <div class="action">
-            <h2>Join a team</h2>
+            <header>
+              <h2>Get more involved</h2>
+              <span class="fa fa-users"></span>
+            </header>
             <a target="_blank" href="" class="button scrolly">Find a team</a>
-            <div class="prompt">Get help and win elections</div>
+            <div class="prompt">Join one of our teams! Events, Communications, Support, Technology and more</div>
           </div>
         </div>
       </div>

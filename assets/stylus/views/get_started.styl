@@ -1,0 +1,63 @@
+// Elements
+
+.page-get-started
+  .wrapper .inner
+    flexbox flex
+    .content-col
+      flex 1
+  header
+    .why
+      font-size 1.8em
+      line-height 1.6em
+      max-width 66%
+  .actions
+    flexbox flex
+    justify-content space-between
+    .action
+      flex 1
+      border-right 1px solid color-medium-gray
+      margin-right 3.5em
+      position relative
+      flexbox flex
+      flex-direction column
+      header
+        flexbox flex
+        justify-content space-between
+        margin-right 2em
+      h2
+        font-weight 400
+        max-width 6em
+        letter-spacing 2px
+      .fa
+        font-size 3em
+      .button
+        align-self center
+      .prompt
+        align-self center
+        font-size .8em
+        margin-top .5em
+    .action:last-child
+      margin-right 0
+      border-right 0
+
+@media screen and (max-width: 886px)
+  .page-get-started
+    header
+      .why
+        font-size 1.2em
+        line-height 1.4em
+        max-width inherit
+    .actions
+      flex-direction column
+      .action
+        border-right 0
+        border-bottom 1px solid color-medium-gray
+        margin-right 0
+        margin-bottom 2em
+        padding-bottom 2em
+        header
+          margin-right 0
+          h2
+            max-width inherit
+          .fa
+            font-size 2.2em
