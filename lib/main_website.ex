@@ -22,6 +22,7 @@ defmodule MainWebsite do
 
       import MainWebsite.Router.Helpers
       import MainWebsite.ErrorHelpers
+      import MainWebsite.ViewHelpers
       import MainWebsite.Gettext
     end
   end

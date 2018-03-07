@@ -13,7 +13,6 @@ defmodule MainWebsite.SharedView do
     render "nav_link.html",
       conn: conn,
       label: label,   # Appears as text for the link
-      action: action, # Needs one of the actions in MainWebsite.Router e.g. :index
-      is_active: conn.assigns.is_current_path.(conn, action)
+      action: action # Needs one of the actions in MainWebsite.Router e.g. :index
   end
 end

@@ -1,3 +1,3 @@
-<li class="nav-<%= @action %><%= if @is_active do %> active<% end %>">
+<li class="nav-<%= @action %><%= if is_current_path(@conn, @action) do %> active<% end %>">
   <%= link @label, to: page_path(@conn, @action) %>
 </li>

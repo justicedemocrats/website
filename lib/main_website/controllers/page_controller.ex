@@ -14,7 +14,6 @@ defmodule MainWebsite.PageController do
   defp assign_template_data(conn) do
     conn
     |> assign(:title, "Justice Democrats")
-    |> assign(:is_current_path, fn(conn, action) -> current_path(conn) == page_path(conn, action) end)
   end
 
   defp render_page(conn, filename, opts \\ []) do
