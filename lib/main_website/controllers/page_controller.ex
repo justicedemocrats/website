@@ -7,7 +7,7 @@ defmodule MainWebsite.PageController do
   def calling(conn, _params), do: render_page(conn, "calling.html")
   def calling_script(conn, _params), do: render_page(conn, "calling_script.html")
   def calling_dialer(conn, _params), do: render_page(conn, "calling_dialer.html")
-  def get_started(conn, params), do: render_page(conn, "get_started.html", emailed: params["emailed"] === "yes")
+  def get_started(conn, params), do: render_page(conn, "get_started.html", params: params)
   def issues(conn, _params), do: render_page(conn, "issues.html")
   def joined(conn, _params), do: render_page(conn, "joined.html")
 
