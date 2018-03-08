@@ -70,6 +70,19 @@
     p
       margin 0
 
+.calling-script
+  header
+    flexbox flex
+    align-items center
+    margin-bottom 2em
+    .fa
+      font-size 3em
+      margin-right .5em
+    .info
+      flexbox flex
+      flex-direction column
+      h2, p
+        margin 0
 .candidate-chooser
   .candidates
     flexbox flex
@@ -81,6 +94,7 @@
     padding 4px
     cursor pointer
     flexbox flex
+    padding .5em
     overflow hidden
     border 1px solid transparent
     &:hover
@@ -91,7 +105,8 @@
       flexbox flex
       text-transform uppercase
       color color-medium-gray
-      font-size .8em
+      font-size .6em
+      margin-top .2em
       letter-spacing 2px
       white-space nowrap
       overflow hidden
@@ -121,6 +136,10 @@
     .candidate
       margin-bottom 8px
       width calc(50% - 6px)
+  .calling-script
+    header
+      .fa
+        display none
   .page-calling
     .actions
       flex-direction column
@@ -147,4 +166,7 @@
   .candidate-chooser
     .candidate
       margin-bottom 8px
+      padding .5em
       width 100%
+      .location
+        font-size .8em

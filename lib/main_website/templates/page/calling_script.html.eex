@@ -8,7 +8,18 @@
         <%= link "↞ Back to \"Choose a candidate\"", to: page_path(@conn, :calling), class: "back-link" %>
         <%= MainWebsite.SharedView.render_calling_header(@conn) %>
         <div class="calling-script">
-          <p>CALLING SCRIPT GOES HERE</p>
+          <header>
+            <div class="fa fa-file-text-o"></div>
+            <div class="info">
+              <h2>Candidate Jinae</h2>
+              <p>Calling script 2018</p>
+            </div>
+          </header>
+          <div class="script">
+            <p>Maecenas id feugiat nunc. Integer gravida augue libero, quis pellentesque amet pharetra a. Ut sagittis ipsum nec velit porttitor, sed convallis ligula pellentesque. Mauris et dignissim sem lacinia lorem ipsum dolor.</p>
+            <p>Maecenas id feugiat nunc. Integer gravida augue libero, quis pellentesque amet pharetra a. Ut sagittis ipsum nec velit porttitor, sed convallis ligula pellentesque. Mauris et dignissim sem lacinia lorem ipsum dolor.</p>
+            <p>Maecenas id feugiat nunc. Integer gravida augue libero, quis pellentesque amet pharetra a. Ut sagittis ipsum nec velit porttitor, sed convallis ligula pellentesque. Mauris et dignissim sem lacinia lorem ipsum dolor.</p>
+          </div>
         </div>
         <div class="next-action">
           <%= link "Next: Use our dialer", to: page_path(@conn, :calling_dialer), class: "button scrolly" %>
