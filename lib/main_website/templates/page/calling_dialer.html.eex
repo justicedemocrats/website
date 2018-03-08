@@ -13,8 +13,7 @@
           <p>Create a login if you don't have one already</p>
         </div>
         <div class="calling-script">
-          <p>CALLING SCRIPT GOES HERE</p>
-        </div>
+        <%= render MainWebsite.SharedView, "calling_script.html", candidate: %{"name" => "Candidate Jinae"} %>
       </div>
     </div>
   </section>
