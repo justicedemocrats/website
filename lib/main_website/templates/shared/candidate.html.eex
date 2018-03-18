@@ -1,0 +1,8 @@
+<div class="candidate">
+  <h2><%= @candidate.title %></h2>
+  <h3>Location • <%= @candidate.district %></h3>
+  <div class="content">
+    <div class="portrait"><img src="<%= @candidate.small_picture %>" alt="" /></div>
+    <%= @candidate.website_blurb %>
+  </div>
+</div>

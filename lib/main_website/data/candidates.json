@@ -1,38 +1,38 @@
 [
   {
-    "name": "Mary Matiella",
+    "title": "Mary Matiella",
     "state": "Arizona",
     "district": "AZ-02",
-    "blurb": "After serving as CFO of the US Forest Service, and Assistant CFO of Housing and Urban Development, Dr. Matiella was nominated by President Obama to serve as Assistant Secretary of the Army. Her nomination was unanimously confirmed by the U.S. Senate. Dr. Matiella served in that capacity until her retirement in 2014. In each of these positions Dr. Matiella oversaw the development, formulation, and implementation of policies, procedures and programs for improving efficiency and effectiveness."
+    "website_blurb": "After serving as CFO of the US Forest Service, and Assistant CFO of Housing and Urban Development, Dr. Matiella was nominated by President Obama to serve as Assistant Secretary of the Army. Her nomination was unanimously confirmed by the U.S. Senate. Dr. Matiella served in that capacity until her retirement in 2014. In each of these positions Dr. Matiella oversaw the development, formulation, and implementation of policies, procedures and programs for improving efficiency and effectiveness."
   },
   {
-    "name": "Raúl Grijalva",
+    "title": "Raúl Grijalva",
     "state": "Arizona",
     "district": "AZ-03",
-    "blurb": "Raúl Grijalva of Arizona’s 3rd Congressional District has served in Congress for over a decade fighting for Medicare For All, $15/hour living wage, free college, taking on mass incarceration, and making sure Wall Street, large corporations and the billionaire class pay their fair share"
+    "website_blurb": "Raúl Grijalva of Arizona’s 3rd Congressional District has served in Congress for over a decade fighting for Medicare For All, $15/hour living wage, free college, taking on mass incarceration, and making sure Wall Street, large corporations and the billionaire class pay their fair share"
   },
   {
-    "name": "Brianna Westbrook",
+    "title": "Brianna Westbrook",
     "state": "Arizona",
     "district": "AZ-08",
-    "blurb": "Brianna seeks to represent Arizona’s 8th congressional district for what she can give to this country, not what she can take. She runs a clean campaign and supports universal health care and a quality education for all, not just privileges for a select few. Brianna has championed life’s challenges with honesty and resolve and a willingness to address today’s issues with innovative solutions."
+    "website_blurb": "Brianna seeks to represent Arizona’s 8th congressional district for what she can give to this country, not what she can take. She runs a clean campaign and supports universal health care and a quality education for all, not just privileges for a select few. Brianna has championed life’s challenges with honesty and resolve and a willingness to address today’s issues with innovative solutions."
   },
   {
-    "name": "Deedra Abboud",
+    "title": "Deedra Abboud",
     "state": "Arizona",
     "district": "AZ-SN",
-    "blurb": "As a socially conscious immigration and estate planning attorney, Deedra Abboud is running a grassroots Arizona U.S. Senate campaign focused on getting special interests and lobbying money out of politics. She champions healthcare for all, quality and affordable public education, protecting net neutrality, and the separation of religion and state, so all may live freely."
+    "website_blurb": "As a socially conscious immigration and estate planning attorney, Deedra Abboud is running a grassroots Arizona U.S. Senate campaign focused on getting special interests and lobbying money out of politics. She champions healthcare for all, quality and affordable public education, protecting net neutrality, and the separation of religion and state, so all may live freely."
   },
   {
-    "name": "Roza Calderon",
+    "title": "Roza Calderon",
     "state": "California",
     "district": "CA-04",
-    "blurb": "As a scientist, activist, and single mother, Roza Calderon knows that we need leaders who represent real people’s needs over party interests. That means combatting climate change, fighting for Medicare for All, and building an inclusive economy--not because it’s popular, because it’s the right thing to do for California’s 4th District."
+    "website_blurb": "As a scientist, activist, and single mother, Roza Calderon knows that we need leaders who represent real people’s needs over party interests. That means combatting climate change, fighting for Medicare for All, and building an inclusive economy--not because it’s popular, because it’s the right thing to do for California’s 4th District."
   },
   {
-    "name": "Dotty Nygard",
+    "title": "Dotty Nygard",
     "state": "California",
     "district": "CA-10",
-    "blurb": "Dotty Nygard in California’s 10th District is an Emergency Room Nurse who believes that an elected representative should embody the ideals, strengths, and spirit of the people they represent. She will be a fierce advocate in Congress for Medicare for All, tuition free public education, the Fight for 15, and getting money out of politics."
+    "website_blurb": "Dotty Nygard in California’s 10th District is an Emergency Room Nurse who believes that an elected representative should embody the ideals, strengths, and spirit of the people they represent. She will be a fierce advocate in Congress for Medicare for All, tuition free public education, the Fight for 15, and getting money out of politics."
   }
 ]

@@ -1,8 +1,5 @@
 use Mix.Config
 
-# General application configuration
-config :main_website, ecto_repos: [Osdi.Repo]
-
 # Configures the endpoint
 config :main_website, MainWebsite.Endpoint,
   url: [host: "localhost"],
@@ -16,7 +13,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 # Cosmic
-config :cosmic, slugs: ["justice-democrats", "brand-new-congress"]
+config :cosmic, slugs: ["project-taquito-2", "justice-democrats", "brand-new-congress"]
 
 # Domains
 config :main_website,
