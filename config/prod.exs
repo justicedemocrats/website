@@ -28,7 +28,7 @@ config :main_website,
   js_script_tag: ~s(<script src="/js/app.js"></script>),
   proxy_base_url: "${PROXY_BASE_URL}",
   proxy_secret: "${PROXY_SECRET}",
-  static_path: "",
+  static_path: ""
 
 # Do not print debug messages in production
 config :logger, level: :info
