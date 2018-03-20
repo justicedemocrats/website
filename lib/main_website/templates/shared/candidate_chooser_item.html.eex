@@ -1,10 +1,10 @@
 <div class="candidate<%= if @is_active do %> active<% end %>">
   <div class="photo"><img src="<%= static_path() %>/images/placeholders/pic06.jpg" alt="" /></div>
   <div class="info">
-    <div class="name"><%= @candidate["name"] %></div>
+    <div class="name"><%= @candidate.title %></div>
     <div class="location">
-      <div class="state"><%= @candidate["state"] %></div>
-      <div class="district"><%= @candidate["district"] %></div>
+      <div class="state">STATE</div>
+      <div class="district"><%= @candidate.district %></div>
     </div>
   </div>
 </div>

@@ -3,8 +3,8 @@
     <%= render MainWebsite.SharedView, "candidate_chooser_item.html", candidate: candidate, is_active: false %>
   <% end %>
   <%= render MainWebsite.SharedView, "candidate_chooser_item.html", candidate: %{
-    "name" => "Hermione Grainger",
-    "state" => "Montana",
-    "district" => "MT-02"
+    "title": "Hermione Grainger",
+    "state": "Montana",
+    "district": "MT-02"
   }, is_active: true %>
 </div>
