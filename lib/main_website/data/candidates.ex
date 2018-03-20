@@ -1,6 +1,9 @@
 defmodule MainWebsite.Candidates do
   import ShortMaps
 
+  @mock_candidates "lib/main_website/data/mock_candidates.json" |> File.read!() |> Poison.decode!()
+  @states "lib/main_website/data/states.json" |> File.read!() |> Poison.decode!()
+
   def all do
     "candidates"
       |> Cosmic.get_type("brand-new-congress")
@@ -19,12 +22,6 @@ defmodule MainWebsite.Candidates do
       |> Cosmic.get_type("brand-new-congress")
       |> Enum.map(&title_and_image_only/1)
       |> Enum.filter(&is_highlighted(&1, highlighted_candidates))
-  end
-
-  def mock do
-    "lib/main_website/data/candidates.json"
-      |> File.read!()
-      |> Poison.decode!()
   end
 
   defp by_district(%{district: d1}, %{district: d2}) do
@@ -56,12 +53,23 @@ defmodule MainWebsite.Candidates do
     ~m(district external_website website_blurb title small_picture) = candidate
     small_picture = URI.encode(small_picture["imgix_url"])
     district = candidate["district_display"] || district
-    ~m(district external_website website_blurb small_picture title)a
+    state = state(district)
+    ~m(district external_website website_blurb small_picture state title)a
   end
 
   defp title_and_image_only(~m(metadata title)) do
     ~m(small_picture) = metadata
     Map.merge(~m(small_picture), ~m(title))
   end
+
+  def state(district) do
+    parse_district(String.split(district, "-"))
+  end
+
+  def parse_district([state_abbrev, district]) do
+    @states[state_abbrev]
+  end
+
+  def parse_district(string), do: string
 
 end

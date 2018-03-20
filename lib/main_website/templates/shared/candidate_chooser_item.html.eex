@@ -3,7 +3,7 @@
   <div class="info">
     <div class="name"><%= @candidate.title %></div>
     <div class="location">
-      <div class="state">STATE</div>
+      <div class="state"><%= @candidate.state %></div>
       <div class="district"><%= @candidate.district %></div>
     </div>
   </div>

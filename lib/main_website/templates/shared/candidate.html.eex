@@ -1,6 +1,6 @@
 <div class="candidate">
   <h2><%= @candidate.title %></h2>
-  <h3>State • <%= @candidate.district %></h3>
+  <h3><%= @candidate.state %> • <%= @candidate.district %></h3>
   <div class="content">
     <div class="portrait"><img src="<%= @candidate.small_picture %>" alt="" /></div>
     <%= @candidate.website_blurb %>
