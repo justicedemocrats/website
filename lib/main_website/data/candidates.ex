@@ -12,6 +12,15 @@ defmodule MainWebsite.Candidates do
       |> Enum.sort(&by_district/2)
   end
 
+  def highlighted do
+    highlighted_candidates = Cosmic.get_type("highlighted-candidates", "project-taquito-2")
+
+    "candidates"
+      |> Cosmic.get_type("brand-new-congress")
+      |> Enum.map(&title_and_image_only/1)
+      |> Enum.filter(&is_highlighted(&1, highlighted_candidates))
+  end
+
   def mock do
     "lib/main_website/data/candidates.json"
       |> File.read!()
@@ -26,6 +35,10 @@ defmodule MainWebsite.Candidates do
 
   defp is_launched(%{"launch_status" => "Launched"}), do: true
   defp is_launched(_else), do: false
+
+  defp is_highlighted(candidate, highlighted_candidates) do
+    Enum.find_value(highlighted_candidates, fn cand -> candidate["title"] == cand["title"] end)
+  end
 
   defp has_props(candidate) do
     missing =
@@ -44,6 +57,11 @@ defmodule MainWebsite.Candidates do
     small_picture = URI.encode(small_picture["imgix_url"])
     district = candidate["district_display"] || district
     ~m(district external_website website_blurb small_picture title)a
+  end
+
+  defp title_and_image_only(~m(metadata title)) do
+    ~m(small_picture) = metadata
+    Map.merge(~m(small_picture), ~m(title))
   end
 
 end

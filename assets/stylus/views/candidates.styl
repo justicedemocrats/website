@@ -7,33 +7,60 @@
   .teasers
     flexbox flex
     margin .5em 0
+    overflow hidden
+    height 137px
+    position relative
     .teaser
-      height 120px
       overflow hidden
-      margin .1em
       width calc(100%/5)
+      position relative
       &:first-child
         margin-left 0
       &:last-child
         margin-right 0
+      img
+        max-width 100%
+      &:after
+        display block
+        position absolute
+        background-image linear-gradient(to top, rgba(113, 113, 113, 0.4), rgba(113, 113, 113, 0.4))
+        width 100%
+        height 100%
+        top 0
+        content ''
   .candidates
-    margin-top 2em
+    margin-top 4em
     .candidate
       padding-bottom 2.5em
-      border-bottom 1px solid #ccc
+      border-top 1px solid #ccc
       margin-bottom 2.5em
+      padding-top 1em
       h2
         margin-bottom .2em
-      &:last-child
-        border-bottom 0
       .portrait
         width 565px
         height 164px
         overflow hidden
         margin 0 0 1em
+        &:after
+          display block
+          position relative
+          background-image linear-gradient(to top, rgba(113, 113, 113, 0.4), rgba(113, 113, 113, 0.4))
+          margin-top -286px
+          height 164px
+          width 100%
+          content ''
       img
         max-width 100%
         margin-top -60px
+@media screen and (max-width: 1159px)
+  .page-candidates
+    .teasers
+      height 100px
+@media screen and (max-width: 854px)
+  .page-candidates
+    .teasers
+      height 88px
 @media screen and (max-width: 736px)
   .page-candidates
     .teasers
@@ -44,5 +71,10 @@
       .candidate
         .portrait
           width auto
+          &:after
+            display block
+            margin-top -330px
+            height 400px
+            width 100%
         img
           margin-top -30px

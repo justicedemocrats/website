@@ -5,11 +5,9 @@
   <section id="main" class="wrapper">
     <div class="inner header"><h1><b>Meet <%= length(@candidates) %> new candidates</b></h1></div>
     <div class="teasers">
-      <div class="teaser"><img src="<%= static_path() %>/images/placeholders/pic02.jpg" alt="" /></div>
-      <div class="teaser"><img src="<%= static_path() %>/images/placeholders/pic06.jpg" alt="" /></div>
-      <div class="teaser"><img src="<%= static_path() %>/images/placeholders/pic02.jpg" alt="" /></div>
-      <div class="teaser"><img src="<%= static_path() %>/images/placeholders/pic06.jpg" alt="" /></div>
-      <div class="teaser"><img src="<%= static_path() %>/images/placeholders/pic02.jpg" alt="" /></div>
+      <%= for highlighted_candidate <- @highlighted do %>
+        <div class="teaser"><img src="<%= highlighted_candidate["small_picture"]["url"] %>" alt="" /></div>
+      <% end %>
     </div>
     <div class="inner header"><h2>who are ready to win</h2></div>
     <div class="inner candidates">
