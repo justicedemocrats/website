@@ -1,8 +1,10 @@
 <div class="candidate">
-  <h2><%= @candidate.title %></h2>
+  <h2><a href="<%= @candidate.external_website %>" target="_blank"><%= @candidate.title %></a></h2>
   <h3><%= @candidate.state %> • <%= @candidate.office_title %></h3>
   <div class="content">
-    <div class="portrait"><img src="<%= @candidate.small_picture %>" alt="" /></div>
+    <a href="<%= @candidate.external_website %>" target="_blank">
+      <div class="portrait"><img src="<%= @candidate.small_picture %>" alt="" /></div>
+    </a>
     <%= @candidate.website_blurb %>
   </div>
 </div>

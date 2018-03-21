@@ -6,7 +6,12 @@
     <div class="inner header"><h1><b>Meet <%= length(@candidates) %> new candidates</b></h1></div>
     <div class="teasers">
       <%= for highlighted_candidate <- @highlighted do %>
-        <div class="teaser"><img src="<%= highlighted_candidate["small_picture"]["url"] %>" alt="" /></div>
+        <a class="teaser"
+           title="<%= highlighted_candidate.title %>, <%= highlighted_candidate.office_title %> • <%= highlighted_candidate.state %>"
+           href="<%= highlighted_candidate.external_website %>"
+           target="_blank">
+          <img src="<%= highlighted_candidate.small_picture %>" alt="" />
+        </a>
       <% end %>
     </div>
     <div class="inner header"><h2>who are ready to win</h2></div>
