@@ -1,4 +1,5 @@
-<div class="candidate<%= if @is_active do %> active<% end %>">
+<a href="<%= page_path(@conn, :calling_script) %>?id=<%= @candidate.slug %>"
+   class="candidate<%= if @is_active do %> active<% end %>">
   <div class="photo"><img src="<%= @candidate.small_picture %>" alt="" /></div>
   <div class="info">
     <div class="name"><%= @candidate.title %></div>
@@ -7,4 +8,4 @@
       <div class="district"><%= @candidate.chamber %></div>
     </div>
   </div>
-</div>
+</a>

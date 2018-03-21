@@ -1,13 +1,12 @@
 defmodule MainWebsite.Candidates do
   import ShortMaps
 
-  @mock_candidates "lib/main_website/data/mock_candidates.json" |> File.read!() |> Poison.decode!()
   @states "lib/main_website/data/states.json" |> File.read!() |> Poison.decode!()
 
   def all do
     "candidates"
       |> Cosmic.get_type("brand-new-congress")
-      |> Enum.map(&metadata_only/1)
+      |> Enum.map(&important_props_only/1)
       |> Enum.filter(fn cand -> is_brand(cand, "jd") end)
       |> Enum.filter(&is_launched/1)
       |> Enum.filter(&has_props/1)
@@ -15,22 +14,40 @@ defmodule MainWebsite.Candidates do
       |> Enum.sort(&by_location/2)
   end
 
+  def callable do
+    all()
+      |> Enum.filter(&is_callable/1)
+  end
+
   def highlighted do
     highlighted_candidates = Cosmic.get_type("highlighted-candidates", "project-taquito-2")
 
     "candidates"
       |> Cosmic.get_type("brand-new-congress")
-      |> Enum.map(&metadata_only/1)
+      |> Enum.map(&important_props_only/1)
       |> Enum.map(&preprocess/1)
       |> Enum.filter(&is_highlighted(&1, highlighted_candidates))
-      |> IO.inspect
+  end
+
+  def one(slug) when not is_nil(slug) do
+    slug
+      |> Cosmic.get("brand-new-congress")
+      |> important_props_only()
+      |> preprocess()
+  end
+
+  def one(_) do
+    callable()
+      |> List.last()
+      |> Map.get(:slug)
+      |> one()
   end
 
   defp by_location(%{state_and_district: sd1}, %{state_and_district: sd2}) do
     sd1 <= sd2
   end
 
-  defp district_format_long(state, {district_num, _}) do
+  defp district_format_long({district_num, _}) do
     last_num = district_num |> Integer.digits() |> List.last()
 
     case last_num do
@@ -41,9 +58,16 @@ defmodule MainWebsite.Candidates do
     end
   end
 
-  defp district_format_long(state, :error), do: ""
+  defp district_format_long(:error), do: ""
+
+  defp important_props_only(~m(metadata slug title)) do
+    Map.merge(metadata, ~m(slug title))
+  end
 
   defp is_brand(~m(brands), brand), do: Enum.member?(brands, brand)
+
+  defp is_callable(%{callable: "Callable"}), do: true
+  defp is_callable(_), do: false
 
   defp is_launched(%{"launch_status" => "Launched"}), do: true
   defp is_launched(_else), do: false
@@ -58,10 +82,6 @@ defmodule MainWebsite.Candidates do
       |> Enum.reject(fn prop -> Map.has_key?(candidate, prop) end)
 
     length(missing) == 0
-  end
-
-  defp metadata_only(~m(metadata title)) do
-    Map.merge(metadata, ~m(title))
   end
 
   defp parse_district(district) do
@@ -91,7 +111,7 @@ defmodule MainWebsite.Candidates do
   ## For the US House of Representatives
   defp parse_office_parts([state_abbrev, district_short]) do
     state = @states[state_abbrev]
-    district_long = district_format_long(state, Integer.parse(district_short))
+    district_long = district_format_long(Integer.parse(district_short))
 
     %{
       chamber: "Congress",
@@ -117,16 +137,26 @@ defmodule MainWebsite.Candidates do
     %{chamber: nil, office_title: string, state: nil, state_abbrev: nil}
   end
 
+  defp parse_script(~m(script)) do
+    script["metadata"]["jd_content"]
+  end
+
+  defp parse_script(_), do: nil
+
   defp preprocess(candidate) do
-    ~m(district external_website website_blurb title small_picture) = candidate
+    ~m(callable district external_website website_blurb title slug small_picture) = candidate
     small_picture = URI.encode(small_picture["imgix_url"])
     state_and_district = candidate["district_display"] || district
+    script = parse_script(candidate)
     ~m(chamber office_title state state_abbrev)a = parse_district(state_and_district)
 
     ~m(
+      callable
       chamber
       external_website
       office_title
+      script
+      slug
       small_picture
       state
       state_abbrev
@@ -134,11 +164,6 @@ defmodule MainWebsite.Candidates do
       title
       website_blurb
     )a
-  end
-
-  defp title_and_image_only(~m(metadata title)) do
-    ~m(external_website small_picture) = metadata
-    ~m(external_website small_picture title)
   end
 
 end

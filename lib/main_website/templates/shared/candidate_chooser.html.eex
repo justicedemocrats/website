@@ -1,5 +1,9 @@
 <div class="candidates">
   <%= for candidate <- @candidates do %>
-    <%= render MainWebsite.SharedView, "candidate_chooser_item.html", candidate: candidate, is_active: false %>
+    <%= render MainWebsite.SharedView,
+               "candidate_chooser_item.html",
+               conn: @conn,
+               candidate: candidate,
+               is_active: false %>
   <% end %>
 </div>

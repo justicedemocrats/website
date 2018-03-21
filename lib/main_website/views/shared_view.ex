@@ -13,7 +13,7 @@ defmodule MainWebsite.SharedView do
   def render_candidate_chooser(conn) do
     render "candidate_chooser.html",
       conn: conn,
-      candidates: Candidates.all()
+      candidates: Candidates.callable()
   end
 
   def render_nav_item(conn, label, action) do
