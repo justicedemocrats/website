@@ -13,7 +13,9 @@ config :logger, :console,
   metadata: [:request_id]
 
 # Cosmic
-config :cosmic, slugs: ["project-taquito-2", "justice-democrats", "brand-new-congress"]
+config :cosmic,
+  slugs: ["project-taquito-2", "justice-democrats", "brand-new-congress"],
+  default_bucket: "project-taquito-2"
 
 # Domains
 config :main_website,

@@ -14,16 +14,5 @@ defmodule MainWebsite.ViewHelpers do
 
   def static_path(), do: Application.get_env(:main_website, :static_path, "")
 
-  def cosmic_object(object_slug, bucket_slug \\ "project-taquito-2") do
-    Cosmic.get(object_slug, bucket_slug)
-  end
-
-  def cosmic_type(type_slug, bucket_slug \\ "project-taquito-2") do
-    Cosmic.get_type(type_slug, bucket_slug)
-  end
-
-  def cosmic(path, bucket_slug \\ "project-taquito-2") do
-    ~m(content) = Cosmic.get(path, bucket_slug)
-    content
-  end
+  def cosmic_safe_content(~m(content)), do: {:safe, content}
 end

@@ -13,7 +13,7 @@
                 <h2><b>We know change is possible</b> and we believe in the power of our democratic system.</h2>
                 <p>We're building a coalition that rejects corporate influence</p>
               </header>
-              <%= {:safe, cosmic("mission")} %>
+              <%= cosmic_safe_content(@mission) %>
             </div>
             <div class="image"><img src="<%= static_path() %>/images/placeholders/pic05.jpg" alt="" /></div>
           </div>
@@ -26,7 +26,7 @@
                 <h2><b>Our team</b> was founded by leaders of the 2016 Bernie Sanders presidential campaign who want to reform the Democratic Party</h2>
                 <p>We believe in confronting the politically impossible</p>
               </header>
-              <%= for team_member <- cosmic_type("team-members") do %>
+              <%= for team_member <- @team_members do %>
                 <div class="question-set">
                   <div class="teammate">
                     <h2><%= team_member["title"] %></h2>
@@ -49,7 +49,7 @@
               <p>Ask us anything</p>
             </header>
             <div class="content">
-              <%= for question_set <- cosmic_type("question-sets") do %>
+              <%= for question_set <- @question_sets do %>
                 <div class="question-set">
                   <h2><%= question_set["title"] %></h2>
                   <%= {:safe, question_set["content"]} %>

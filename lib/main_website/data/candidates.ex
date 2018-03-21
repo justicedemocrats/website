@@ -1,6 +1,7 @@
 defmodule MainWebsite.Candidates do
   import ShortMaps
 
+  @default_cosmic_bucket Application.get_env(:cosmic, :default_bucket)
   @states "lib/main_website/data/states.json" |> File.read!() |> Poison.decode!()
 
   def all do
@@ -20,7 +21,7 @@ defmodule MainWebsite.Candidates do
   end
 
   def highlighted do
-    highlighted_candidates = Cosmic.get_type("highlighted-candidates", "project-taquito-2")
+    highlighted_candidates = Cosmic.get_type("highlighted-candidates", @default_cosmic_bucket)
 
     "candidates"
       |> Cosmic.get_type("brand-new-congress")
