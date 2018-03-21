@@ -26,46 +26,18 @@
                 <h2><b>Our team</b> was founded by leaders of the 2016 Bernie Sanders presidential campaign who want to reform the Democratic Party</h2>
                 <p>We believe in confronting the politically impossible</p>
               </header>
-              <div class="teammate">
-                <h2>Person Name</h2>
-                <div class="role">What they do for JD</div>
-                <div class="content">
-                  <div class="portrait"><img src="<%= static_path() %>/images/placeholders/pic06.jpg" alt="" /></div>
-                  <p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
+              <%= for team_member <- cosmic_type("team-members") do %>
+                <div class="question-set">
+                  <div class="teammate">
+                    <h2><%= team_member["title"] %></h2>
+                    <div class="role"><%= team_member["metadata"]["position"] %></div>
+                    <div class="content">
+                      <div class="portrait"><img src="<%= team_member["metadata"]["small_picture"]["url"] %>" alt="" /></div>
+                      <%= {:safe, team_member["content"]} %>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="teammate">
-                <h2>Person Name</h2>
-                <div class="role">What they do for JD</div>
-                <div class="content">
-                  <div class="portrait"><img src="<%= static_path() %>/images/placeholders/pic06.jpg" alt="" /></div>
-                  <p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-                </div>
-              </div>
-              <div class="teammate">
-                <h2>Person Name</h2>
-                <div class="role">What they do for JD</div>
-                <div class="content">
-                  <div class="portrait"><img src="<%= static_path() %>/images/placeholders/pic06.jpg" alt="" /></div>
-                  <p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-                </div>
-              </div>
-              <div class="teammate">
-                <h2>Person Name</h2>
-                <div class="role">What they do for JD</div>
-                <div class="content">
-                  <div class="portrait"><img src="<%= static_path() %>/images/placeholders/pic06.jpg" alt="" /></div>
-                  <p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-                </div>
-              </div>
-              <div class="teammate">
-                <h2>Person Name</h2>
-                <div class="role">What they do for JD</div>
-                <div class="content">
-                  <div class="portrait"><img src="<%= static_path() %>/images/placeholders/pic06.jpg" alt="" /></div>
-                  <p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-                </div>
-              </div>
+              <% end %>
             </div>
           </div>
         </li>

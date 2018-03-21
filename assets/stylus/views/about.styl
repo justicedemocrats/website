@@ -16,6 +16,16 @@
       height 200px
       overflow hidden
       margin-right 2em
+      &:after
+        display block
+        position relative
+        background-image photo-gradient
+        margin-top -208px
+        height 100%
+        width 100%
+        content ''
+      img
+        max-width 100%
   .question-set
     margin-bottom 2em
     border-bottom 1px solid rgba(0,0,0,0.1)
@@ -34,6 +44,8 @@
     .teammate
       .content
         flex-direction column
+    .portrait
+        margin-bottom 1em
     .question-set
       h2
         font-size 1.15em
