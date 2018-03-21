@@ -6,5 +6,6 @@
       <div class="portrait"><img src="<%= @candidate.small_picture %>" alt="" /></div>
     </a>
     <%= @candidate.website_blurb %>
+    <a class="button more-button" href="<%= @candidate.external_website %>" target="_blank">More info</a>
   </div>
 </div>
