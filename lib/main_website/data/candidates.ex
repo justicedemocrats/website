@@ -12,7 +12,7 @@ defmodule MainWebsite.Candidates do
       |> Enum.filter(&is_launched/1)
       |> Enum.filter(&has_props/1)
       |> Enum.map(&preprocess/1)
-      |> Enum.sort(&by_district/2)
+      |> Enum.sort(&by_location/2)
   end
 
   def highlighted do
@@ -24,9 +24,22 @@ defmodule MainWebsite.Candidates do
       |> Enum.filter(&is_highlighted(&1, highlighted_candidates))
   end
 
-  defp by_district(%{district: d1}, %{district: d2}) do
-    d1 <= d2
+  defp by_location(%{state_and_district: sd1}, %{state_and_district: sd2}) do
+    sd1 <= sd2
   end
+
+  defp district_format_long(state, {district_num, _}) do
+    last_num = district_num |> Integer.digits() |> List.last()
+
+    case last_num do
+      1 -> "1st District"
+      2 -> "2nd District"
+      3 -> "3rd District"
+      _ -> "#{district_num}th district"
+    end
+  end
+
+  defp district_format_long(state, :error), do: ""
 
   defp is_brand(~m(brands), brand), do: Enum.member?(brands, brand)
 
@@ -49,27 +62,81 @@ defmodule MainWebsite.Candidates do
     Map.merge(metadata, ~m(title))
   end
 
+  defp parse_district(district) do
+    district
+    |> String.split("-")
+    |> parse_office_parts()
+  end
+
+  ## For the US Senate
+  defp parse_office_parts([state_abbrev, "SN"]) do
+    state = @states[state_abbrev]
+
+    %{
+      chamber: "Senate",
+      office_details: %{
+        short: "SN",
+        medium: "Senate",
+        long: "#{state} Senate"
+      },
+      office_title: "Senate",
+      office_title_long: "Senator of #{state}",
+      state: state,
+      state_abbrev: state_abbrev
+    }
+  end
+
+  ## For the US House of Representatives
+  defp parse_office_parts([state_abbrev, district_short]) do
+    state = @states[state_abbrev]
+    district_long = district_format_long(state, Integer.parse(district_short))
+
+    %{
+      chamber: "Congress",
+      office_details: %{
+        short: district_short,
+        medium: state <> " " <> district_short,
+        long: district_long
+      },
+      office_title: "Congress • #{district_long}",
+      office_title_long: "Congressperson for the #{district_long}",
+      state: state,
+      state_abbrev: state_abbrev
+    }
+  end
+
+  ## For Governors?
+  defp parse_office_parts([title]) do
+    %{chamber: nil, office_title: title, state: nil, state_abbrev: nil}
+  end
+
+  ## For unknown offices
+  defp parse_office_parts(string) do
+    %{chamber: nil, office_title: string, state: nil, state_abbrev: nil}
+  end
+
   defp preprocess(candidate) do
     ~m(district external_website website_blurb title small_picture) = candidate
     small_picture = URI.encode(small_picture["imgix_url"])
-    district = candidate["district_display"] || district
-    state = state(district)
-    ~m(district external_website website_blurb small_picture state title)a
+    state_and_district = candidate["district_display"] || district
+    ~m(chamber office_title state state_abbrev)a = parse_district(state_and_district)
+
+    ~m(
+      chamber
+      external_website
+      office_title
+      small_picture
+      state
+      state_abbrev
+      state_and_district
+      title
+      website_blurb
+    )a
   end
 
   defp title_and_image_only(~m(metadata title)) do
     ~m(small_picture) = metadata
     Map.merge(~m(small_picture), ~m(title))
   end
-
-  def state(district) do
-    parse_district(String.split(district, "-"))
-  end
-
-  def parse_district([state_abbrev, district]) do
-    @states[state_abbrev]
-  end
-
-  def parse_district(string), do: string
 
 end

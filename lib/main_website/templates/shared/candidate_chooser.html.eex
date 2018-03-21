@@ -2,9 +2,4 @@
   <%= for candidate <- @candidates do %>
     <%= render MainWebsite.SharedView, "candidate_chooser_item.html", candidate: candidate, is_active: false %>
   <% end %>
-  <%= render MainWebsite.SharedView, "candidate_chooser_item.html", candidate: %{
-    "title": "Hermione Grainger",
-    "state": "Montana",
-    "district": "MT-02"
-  }, is_active: true %>
 </div>
