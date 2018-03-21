@@ -127,9 +127,17 @@
       min-width 3em
       overflow hidden
       margin-right .5em
-      img
-        width 3em
+      &:after
+        display block
+        position relative
+        background-image photo-gradient
+        margin-top -4em
         height 3em
+        width 100%
+        content ''
+      img
+        max-width 6em
+        margin-left -1.5em
 
 @media screen and (max-width: 810px)
   .candidate-chooser

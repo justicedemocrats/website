@@ -1,5 +1,5 @@
 <div class="candidate<%= if @is_active do %> active<% end %>">
-  <div class="photo"><img src="<%= static_path() %>/images/placeholders/pic06.jpg" alt="" /></div>
+  <div class="photo"><img src="<%= @candidate.small_picture %>" alt="" /></div>
   <div class="info">
     <div class="name"><%= @candidate.title %></div>
     <div class="location">
