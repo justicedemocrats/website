@@ -14,8 +14,12 @@ defmodule MainWebsite.ViewHelpers do
 
   def static_path(), do: Application.get_env(:main_website, :static_path, "")
 
-  def cosmic(path, slug \\ "project-taquito-2") do
-    ~m(content) = Cosmic.get(path, slug)
+  def cosmic_type(type_slug, bucket_slug \\ "project-taquito-2") do
+    Cosmic.get_type(type_slug, bucket_slug)
+  end
+
+  def cosmic(path, bucket_slug \\ "project-taquito-2") do
+    ~m(content) = Cosmic.get(path, bucket_slug)
     content
   end
 end
