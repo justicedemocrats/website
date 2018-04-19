@@ -1,0 +1,24 @@
+<hr />
+
+<form action="<%= page_path(@conn, :submit_dialer_confirmation) %>" method="post" class="dialer-form">
+    <%= if @error do %>
+    <h4 class="error"><%= @error %></h4>
+    <% end %>
+
+    <p>We just sent you a code at <strong><%= @phone_number %></strong>. Enter it here to verify your phone number.</p>
+
+    <div class="field">
+        <label for="code">
+        Verification Code
+        <input name="code" type="text" required autofocus />
+        </label>
+    </div>
+
+    <input type="hidden" name="id" value="<%= @params["id"] %>" />
+    <input type="hidden" name="request_id" value="<%= @request_id %>" />
+    <input type="hidden" name="_csrf_token" value="<%= csrf_token() %>" />
+
+    <%= button "Continue", to: page_path(@conn, :submit_dialer), class: "button" %>
+
+    <%= link "Start over", to: page_path(@conn, :calling_dialer, id: @params["id"], clear: "1"), class: "clear-link" %>
+</form>

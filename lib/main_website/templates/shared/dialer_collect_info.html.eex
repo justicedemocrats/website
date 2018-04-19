@@ -1,0 +1,44 @@
+<hr />
+
+<form action="<%= page_path(@conn, :submit_dialer) %>" method="post" class="dialer-form">
+    <%= if @error do %>
+    <h4 class="error"><%= @error %></h4>
+    <% end %>
+
+    <p>In order to make calls, you need a username and password for the dialer website.</p>
+
+    <div class="field half first">
+        <label for="phone">
+        Phone Number
+        <input name="phone" placeholder="555-555-1212" type="text" required autofocus />
+        </label>
+    </div>
+
+    <div class="field half">
+        <label for="calling_from">
+        Where are you calling from?
+        <span class="select-wrapper">
+        <select name="calling_from">
+            <option value="home">Home</option>
+            <option value="vol-pb">Volunteer hosted phone bank</option>
+            <option value="campaign-pb">Campaign hosted phone bank</option>
+            <option value="campaign-office">Campaign office</option>
+        </select>
+        </span>
+        </label>
+    </div>
+
+    <p>We'll need to verify your phone in order to get you in the dialer. Should we text you, or call you?</p>
+    <div class="field">
+        <input id="cell" name="verification_method" value="text" type="radio" required />
+        <label for="cell">Text me, I'm using a cell phone</label>
+
+        <input id="landline" name="verification_method" value="call" type="radio" />
+        <label for="landline">Call me, I'm using a landline</label>
+    </div>
+
+    <input type="hidden" name="_csrf_token" value="<%= csrf_token() %>" />
+    <input type="hidden" name="id" value="<%= @params["id"] %>" />
+
+    <%= button "Continue", to: page_path(@conn, :submit_dialer), class: "button" %>
+</form>

@@ -1,0 +1,31 @@
+<div class="page-sign-up">
+
+  <%= render MainWebsite.SharedView, "header.html", assigns %>
+
+  <section class="wrapper style1 sign-up">
+    <div class="inner">
+      <h2>Welcome to the team!</h2>
+      <p>First we need to get your contact information so we can keep in touch.</p>
+
+      <form action="<%= page_path(@conn, :submit_sign_up) %>" method="post" class="volunteer-form">
+        <div class="field">
+          <input name="name" placeholder="Name" type="text" required autofocus />
+        </div>
+        <div class="field half first">
+          <input name="email" placeholder="Email" type="email" required />
+        </div>
+        <div class="field half">
+          <input name="zip" placeholder="Zip" type="text" required />
+        </div>
+
+        <input type="hidden" name="action" value="<%= @params["action"] %>" />
+        <input type="hidden" name="_csrf_token" value="<%= csrf_token() %>" />
+
+        <ul class="actions">
+          <li><%= button "Continue", to: page_path(@conn, :submit_sign_up), class: "button" %></li>
+        </ul>
+      </form>
+    </div>
+  </section>
+
+</div>

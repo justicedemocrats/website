@@ -11,7 +11,7 @@
     </header>
   </a>
   <a
-    href="<%= page_path(@conn, :calling_script) %>"
+    href="<%= page_path(@conn, :calling_script, id: @params["id"]) %>"
     class="action<%= if is_current_path(@conn, :calling_script) do %> active<% end %>">
     <header>
       <h2><ins>2.</ins>Review the script</h2>
@@ -19,7 +19,7 @@
     </header>
   </a>
   <a
-    href="<%= page_path(@conn, :calling_dialer) %>"
+    href="<%= page_path(@conn, :calling_dialer, id: @params["id"]) %>"
     class="action<%= if is_current_path(@conn, :calling_dialer) do %> active<% end %>">
     <header>
       <h2><ins>3.</ins>Use the dialer</h2>

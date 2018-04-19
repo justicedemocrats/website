@@ -30,7 +30,7 @@ defmodule MainWebsite.Candidates do
       |> Enum.filter(&is_highlighted(&1, highlighted_candidates))
   end
 
-  def one(slug) when not is_nil(slug) do
+  def one(slug) when not is_nil(slug) and slug != "" do
     slug
       |> Cosmic.get("brand-new-congress")
       |> important_props_only()

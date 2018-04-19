@@ -5,9 +5,10 @@ defmodule MainWebsite.SharedView do
   def donate_url(), do: "https://secure.actblue.com/donate/justicedemocrats"
   def store_url(), do: "https://shop.justicedemocrats.com/"
   def host_event_url(), do: "https://jdems.us/host"
+  def csrf_token(), do: Plug.CSRFProtection.get_csrf_token()
 
-  def render_calling_header(conn) do
-    render "calling_header.html", conn: conn
+  def render_calling_header(conn, params) do
+    render "calling_header.html", conn: conn, params: params
   end
 
   def render_candidate_chooser(conn) do

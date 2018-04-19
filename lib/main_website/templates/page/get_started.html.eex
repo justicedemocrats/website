@@ -16,7 +16,7 @@
               <h2>Call for a candidate</h2>
               <span class="fa fa-phone"></span>
             </header>
-            <%= link "Start a call", to: page_path(@conn, :calling), class: "button scrolly" %>
+            <%= link "Start a call", to: page_path(@conn, :sign_up, action: "calling"), class: "button scrolly" %>
             <div class="prompt">Make their names known</div>
           </div>
           <div class="action">

@@ -6,6 +6,7 @@ defmodule MainWebsite.ViewHelpers do
   use Phoenix.HTML
   import MainWebsite.Router.Helpers
   import ShortMaps
+  alias MainWebsite.Candidates
 
   @doc """
   Is the given router action being viewed?

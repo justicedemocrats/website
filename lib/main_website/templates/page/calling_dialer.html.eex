@@ -6,15 +6,24 @@
     <div class="inner">
       <div class="content-col">
         <%= link "↞ Back to \"Review the script\"", to: page_path(@conn, :calling_script), class: "back-link" %>
-        <%= MainWebsite.SharedView.render_calling_header(@conn) %>
+
+        <%= MainWebsite.SharedView.render_calling_header(@conn, @params) %>
+
         <div class="dialer-action">
-          <h3>Call for Candidate X</h3>
+          <h3>Call for <%= @candidate.title %> &middot; <%= @candidate.state_and_district %></h3>
+
+          <!--
           <%= link "Start dialer", to: page_path(@conn, :calling), class: "button scrolly" %>
           <p>Create a login if you don't have one already</p>
+          -->
+
+          <%= render MainWebsite.SharedView, @template, assigns %>
+
         </div>
+
         <div class="calling-script">
-        <%= render MainWebsite.SharedView, "calling_script.html", candidate: %{"name" => "Candidate Jinae"} %>
-      </div>
+          <%= render MainWebsite.SharedView, "calling_script.html", candidate: @candidate %>
+        </div>
     </div>
   </section>
 

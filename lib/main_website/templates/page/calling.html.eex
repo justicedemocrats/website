@@ -6,7 +6,7 @@
     <div class="inner">
       <div class="content-col">
         <%= link "↞ Back to \"Get started\"", to: page_path(@conn, :get_started), class: "back-link" %>
-        <%= MainWebsite.SharedView.render_calling_header(@conn) %>
+        <%= MainWebsite.SharedView.render_calling_header(@conn, @params) %>
         <div class="candidate-chooser">
           <%= MainWebsite.SharedView.render_candidate_chooser(@conn) %>
         </div>

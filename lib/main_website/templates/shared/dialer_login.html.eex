@@ -1,0 +1,19 @@
+<div class="dialer-login-info">
+    <div>
+        <span class="label">Username: </span>
+        <span class="value"><%= @username %></span>
+    </div>
+
+    <div>
+        <span class="label">Password: </span>
+        <span class="value"><%= @password %></span>
+    </div>
+
+    <p class="dialer-link">
+        <a class="button more-button" href="https://portal.na4.livevox.com/BrandNewCampaign/AgentLogin" target="_blank">Start calling</a>
+    </p>
+
+
+    <%= link "Start over", to: page_path(@conn, :calling_dialer, id: @params["id"], clear: "1"), class: "clear-link" %>
+
+</div>

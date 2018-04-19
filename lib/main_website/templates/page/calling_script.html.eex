@@ -6,10 +6,10 @@
     <div class="inner">
       <div class="content-col">
         <%= link "↞ Back to \"Choose a candidate\"", to: page_path(@conn, :calling), class: "back-link" %>
-        <%= MainWebsite.SharedView.render_calling_header(@conn) %>
+        <%= MainWebsite.SharedView.render_calling_header(@conn, @params) %>
         <%= render MainWebsite.SharedView, "calling_script.html", candidate: @candidate %>
         <div class="next-action">
-          <%= link "Next: Use our dialer", to: page_path(@conn, :calling_dialer), class: "button scrolly" %>
+          <%= link "Next: Use our dialer", to: page_path(@conn, :calling_dialer, id: @params["id"]), class: "button scrolly" %>
         </div>
       </div>
     </div>
