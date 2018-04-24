@@ -3,7 +3,7 @@ defmodule MainWebsite.DialerApi do
 
   # fixme delete?
   defp process_url(url, opts) do
-     "https://justicedialer.com/api#{url}"
+    "https://justicedialer.com/api#{url}"
   end
 
   defp process_request_headers(hdrs) do
@@ -22,7 +22,6 @@ defmodule MainWebsite.DialerApi do
   end
 
   defp process_response_body(body) do
-    body |> Poison.decode!
+    body |> Poison.decode!()
   end
-
 end
