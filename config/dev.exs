@@ -44,13 +44,13 @@ config :candidate_website, CandidateWebsite.Endpoint,
 config :logger, :console, format: "[$level] $message\n"
 
 config :actionkit,
-  base: "${AK_BASE}",
-  username: "${AK_USERNAME}",
-  password: "${AK_PASSWORD}"
+  base: System.get_env("AK_BASE"),
+  username: System.get_env("AK_USERNAME"),
+  password: System.get_env("AK_PASSWORD")
 
 config :candidate_website,
-  proxy_base_url: "${PROXY_BASE_URL}",
-  proxy_secret: "${PROXY_SECRET}"
+  proxy_base_url: System.get_env("PROXY_BASE_URL"),
+  proxy_secret: System.get_env("PROXY_SECRET")
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
