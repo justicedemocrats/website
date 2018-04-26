@@ -65,8 +65,9 @@ defmodule MainWebsite.PageController do
     name = params["name"]
     email = params["email"]
     zip = params["zip"]
+    akid = get_session(conn, :akid)
 
-    result = Ak.Signup.process_signup("Justice Democrats", %{ "name" => name, "email" => email, "zip" => zip })
+    result = Ak.Signup.process_signup("Justice Democrats", %{ "name" => name, "email" => email, "zip" => zip, "akid" => akid })
 
     conn
     |> put_session(:akid, result.body["akid"])
