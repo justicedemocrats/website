@@ -5,7 +5,6 @@
   <section id="main" class="wrapper">
     <div class="inner">
       <div class="content-col">
-        <%= if @params["emailed"] === "yes" do %><div class="thanks">Welcome! We'll keep you updated.</div><% end %>
         <header>
           <h1><b>Get started</b></h1>
           <p class="why">You can make a difference by connecting voters and raising awareness.</p>
@@ -19,6 +18,7 @@
             <%= link "Start a call", to: page_path(@conn, :sign_up, action: "calling"), class: "button scrolly" %>
             <div class="prompt">Make their names known</div>
           </div>
+
           <div class="action">
             <header>
               <h2>Attend an event</h2>
@@ -27,14 +27,25 @@
             <a target="_blank" href="" class="button scrolly">See all events</a>
             <div class="prompt">You can also host one near you</div>
           </div>
+
           <div class="action">
             <header>
-              <h2>Get more involved</h2>
+              <h2>Join a campaign</h2>
+              <span class="fa fa-clipboard-check"></span>
+            </header>
+            <a target="_blank" href="https://go.justicedemocrats.com/survey/volunteer-directly-jd-campaign?akid=<%= @akid %>" class="button scrolly">Find a campaign</a>
+            <div class="prompt">Volunteer directly with one of our candidates</div>
+          </div>
+
+          <div class="action">
+            <header>
+              <h2>Get more involved</h2
               <span class="fa fa-users"></span>
             </header>
-            <a target="_blank" href="" class="button scrolly">Find a team</a>
+            <a target="_blank" href="https://go.justicedemocrats.com/survey/special-teams-onboarding?akid=<%= @akid %>" class="button scrolly">Find a team</a>
             <div class="prompt">Join one of our teams! Events, Communications, Support, Technology and more</div>
           </div>
+
         </div>
       </div>
     </div>

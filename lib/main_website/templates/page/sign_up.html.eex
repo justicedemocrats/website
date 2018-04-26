@@ -9,13 +9,13 @@
 
       <form action="<%= page_path(@conn, :submit_sign_up) %>" method="post" class="volunteer-form">
         <div class="field">
-          <input name="name" placeholder="Name" type="text" required autofocus />
+          <input name="name" placeholder="Name" type="text" value="<%= @name %>" required autofocus />
         </div>
         <div class="field half first">
-          <input name="email" placeholder="Email" type="email" required />
+          <input name="email" placeholder="Email" type="email" value="<%= @email %>" required />
         </div>
         <div class="field half">
-          <input name="zip" placeholder="Zip" type="text" required />
+          <input name="zip" placeholder="Zip" type="text" value="<%= @zip %>" required />
         </div>
 
         <input type="hidden" name="action" value="<%= @params["action"] %>" />

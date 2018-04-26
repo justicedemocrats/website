@@ -26,29 +26,54 @@ defmodule MainWebsite.PageController do
         highlighted: Candidates.highlighted()
       )
 
-  def get_started(conn, params), do: render_page(conn, "get_started.html", params: params)
+  def get_started(conn, params) do
+    akid = get_session(conn, :akid) || ""
+    render_page(conn, "get_started.html", params: params, akid: akid)
+  end
+
   def issues(conn, _params), do: render_page(conn, "issues.html")
-  def joined(conn, _params), do: render_page(conn, "joined.html")
+
+  def joined(conn, params) do
+    name = get_session(conn, :name)
+    email = get_session(conn, :email)
+    zip = get_session(conn, :zip)
+    render_page(conn, "joined.html", params: params, name: name, email: email, zip: zip)
+  end
 
   def sign_up(conn, params) do
     # see if we are already registered, if so, redirect, else, render
-    if get_session(conn, :name) && get_session(conn, :email) && get_session(conn, :zip) do
-      redirect(conn, to: "/#{params["action"]}")
+    name = get_session(conn, :name)
+    email = get_session(conn, :email)
+    zip = get_session(conn, :zip)
+
+    # this is just a whitelist of supported actions so we don't have some weird injection attack
+    action = case params["action"] do
+      "start" -> "start"
+      "calling" -> "calling"
+      "events" -> "events"
+      _ -> "joined"
+    end
+
+    if name && name != "" && email && email != "" && zip && zip != "" do
+      redirect(conn, to: "/#{action}")
     else
-      render_page(conn, "sign_up.html", params: params)
+      render_page(conn, "sign_up.html", params: params, name: name, zip: zip, email: email)
     end
   end
 
   def submit_sign_up(conn, params) do
-    if !params["name"] || !params["email"] || !params["zip"] do
-      redirect(conn, to: "/sign-up")
-    else
-      conn
-      |> put_session(:name, params["name"])
-      |> put_session(:email, params["email"])
-      |> put_session(:zip, params["zip"])
-      |> redirect(to: "/#{params["action"]}")
-    end
+    name = params["name"]
+    email = params["email"]
+    zip = params["zip"]
+
+    result = Ak.Signup.process_signup("Justice Democrats", %{ "name" => name, "email" => email, "zip" => zip })
+
+    conn
+    |> put_session(:akid, result.body["akid"])
+    |> put_session(:name, name)
+    |> put_session(:email, email)
+    |> put_session(:zip, zip)
+    |> redirect(to: "/#{params["action"]}")
   end
 
   # FIXME: move this into a separate file?
