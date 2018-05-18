@@ -28,3 +28,4 @@ npm-debug.log
 cosmic_cache
 event_cache
 .env
+.elixir_ls
