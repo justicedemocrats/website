@@ -36,7 +36,7 @@
   <div style="margin-top: 20px; text-align: center;">
     <strong> Are you running for congress and seeking a Justice Democrats endorsement?</strong>
     <br/>
-    <a class="button" href="https://now.justicedemocrats.com/form/endorsement" style="border: none; background-color: <%= @primary_color %>; margin-top: 10px;">
+    <a class="button" href="https://go.justicedemocrats.com/survey/application-endorsement/" style="border: none; background-color: <%= @primary_color %>; margin-top: 10px;">
       Apply to Become a Justice Democrat
     </a>
   </div>
