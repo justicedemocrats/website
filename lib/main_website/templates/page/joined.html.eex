@@ -1,4 +1,6 @@
 <div class="page-joined">
+  <%= render MainWebsite.SharedView, "header.html", assigns %>
+
   <header class="thanks">
     <h2>Welcome! We'll keep you updated.</h2>
   </header>
@@ -9,7 +11,7 @@
       <h2>We can win with a new strategy. By fighting for the poor and middle-class with concrete solutions we will ensure an uncompromising majority in Congress.</h2>
       <div class="donate-form">
         <h2>Help us make history.</h2>
-        <a href="#" class="button wide">Donate</a>
+        <a href="https://secure.actblue.com/donate/justicedemocrats" class="button wide">Donate</a>
       </div>
     </div>
   </section>
@@ -20,19 +22,23 @@
       <p>Even a little bit of your time can make a difference. A movement of millions of Americans are coming together to fight for real, lasting change. If you volunteer our community leaders will contact you about next steps.</p>
       <p>Help us make history.</p>
 
-      <form action="<%= page_path(@conn, :joined) %>" method="get" class="volunteer-form">
+      <form action="<%= page_path(@conn, :sign_up) %>" method="post">
         <h2>Ready to get involved?</h2>
         <div class="field">
-          <input name="name" placeholder="Name" type="text" />
+          <input name="name" placeholder="Name" type="text" value="<%= @name %>" />
         </div>
         <div class="field half first">
-          <input name="email" placeholder="Email" type="email" />
+          <input name="email" placeholder="Email" type="email" value="<%= @email %>" />
         </div>
         <div class="field half">
-          <input name="zip" placeholder="Zip" type="text" />
+          <input name="zip" placeholder="Zip" type="text" value="<%= @zip %>" />
         </div>
+
+        <input type="hidden" name="_csrf_token" value="<%= csrf_token() %>" />
+        <input type="hidden" name="action" value="start" />
+
         <ul class="actions">
-          <li><%= button "Join the team", to: page_path(@conn, :joined), class: "button" %></li>
+          <li><%= button "Join the team", to: page_path(@conn, :sign_up), class: "button" %></li>
         </ul>
       </form>
     </div>

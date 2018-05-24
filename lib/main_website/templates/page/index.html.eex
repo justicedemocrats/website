@@ -9,11 +9,15 @@
       <div id="signup">
         <div class="inner">
           <h2>Ready to get involved?</h2>
+          <form action="<%= page_path(@conn, :sign_up) %>" method="post" class="volunteer-form">
           <div class="actions">
-            <input type="email" placeholder="Email" />
-            <input type="text" placeholder="Zip" />
-            <%= link "Join The Team", to: page_path(@conn, :get_started, emailed: "yes"), class: "button scrolly" %>
+            <input name="email" type="email" placeholder="Email" />
+            <input name="zip" type="text" placeholder="Zip" />
+            <input type="hidden" name="_csrf_token" value="<%= csrf_token() %>" />
+            <input type="hidden" name="action" value="joined" />
+            <%= button "Join the team", to: page_path(@conn, :sign_up), class: "button scrolly" %>
           </div>
+          </form>
         </div>
       </div>
     </div>
