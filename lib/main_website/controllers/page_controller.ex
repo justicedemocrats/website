@@ -1,11 +1,28 @@
 defmodule MainWebsite.PageController do
   require Logger
+  import ShortMaps
   use MainWebsite, :controller
   alias MainWebsite.{Candidates, ViewHelpers, DialerApi}
 
   @default_cosmic_bucket Application.get_env(:cosmic, :default_bucket)
 
-  def index(conn, _params), do: render_page(conn, "index.html")
+  def index(conn, _params) do
+    main_banner =
+      Cosmic.get("main-images", @default_cosmic_bucket)
+      |> get_in(~w(metadata main_banner imgix_url))
+
+    text_overlay =
+      Cosmic.get("main-images", @default_cosmic_bucket)
+      |> get_in(~w(metadata text_overlay imgix_url))
+
+    block_one = Cosmic.get("block-one", @default_cosmic_bucket) |> get_in(~w(content))
+
+    render_page(
+      conn,
+      "index.html",
+      ~m(main_banner text_overlay block_one)a
+    )
+  end
 
   def about(conn, _params),
     do:
@@ -47,12 +64,13 @@ defmodule MainWebsite.PageController do
     zip = get_session(conn, :zip)
 
     # this is just a whitelist of supported actions so we don't have some weird injection attack
-    action = case params["action"] do
-      "start" -> "start"
-      "calling" -> "calling"
-      "events" -> "events"
-      _ -> "joined"
-    end
+    action =
+      case params["action"] do
+        "start" -> "start"
+        "calling" -> "calling"
+        "events" -> "events"
+        _ -> "joined"
+      end
 
     if name && name != "" && email && email != "" && zip && zip != "" do
       redirect(conn, to: "/#{action}")
@@ -67,7 +85,13 @@ defmodule MainWebsite.PageController do
     zip = params["zip"]
     akid = get_session(conn, :akid)
 
-    result = Ak.Signup.process_signup("Justice Democrats", %{ "name" => name, "email" => email, "zip" => zip, "akid" => akid })
+    result =
+      Ak.Signup.process_signup("Justice Democrats", %{
+        "name" => name,
+        "email" => email,
+        "zip" => zip,
+        "akid" => akid
+      })
 
     conn
     |> put_session(:akid, result.body["akid"])

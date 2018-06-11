@@ -1,0 +1,8 @@
+<section id="one" class="wrapper">
+  <div class="inner">
+    <div class="split style1 centered reversed">
+      <%= raw(@block_one) %>
+    </div>
+  </div>
+</section>
+

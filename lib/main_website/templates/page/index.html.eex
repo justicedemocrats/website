@@ -1,83 +1,33 @@
 <div class="page-index">
   <%= render MainWebsite.SharedView, "header.html", assigns %>
 
-  <section id="banner" style="background-image:url('<%= static_path() %>/images/placeholders/pic01.jpg')">
-    <div class="inner">
-      <h1><%= @title %></h1>
-      <div class="slogan">Tortillas that represent flautas, not tacos.</div>
+  <section id="banner" style="background-image:url('<%= @main_banner %>')">
+    <div>
+      <div style="padding-left: 10%; padding-right: 10%;">
+        <img style="height: 100%; width: 100%;" src="<%= @text_overlay %>"/>
+      </div>
 
-      <div id="signup">
-        <div class="inner">
-          <h2>Ready to get involved?</h2>
-          <form action="<%= page_path(@conn, :sign_up) %>" method="post" class="volunteer-form">
+      <div id="signup" style="background-color: rgba(255, 255, 255, .8);">
+        <form action="<%= page_path(@conn, :sign_up) %>" method="post" class="volunteer-form">
           <div class="actions">
-            <input name="email" type="email" placeholder="Email" />
-            <input name="zip" type="text" placeholder="Zip" />
+            <input name="name" type="text" placeholder="Name*" required="true"  />
+            <input name="email" type="email" placeholder="Email*" required="true"  />
+            <input name="zip" type="text" placeholder="Zip*" required="true" />
+            <input name="phone" type="tel" placeholder="Phone" />
             <input type="hidden" name="_csrf_token" value="<%= csrf_token() %>" />
             <input type="hidden" name="action" value="joined" />
             <%= button "Join the team", to: page_path(@conn, :sign_up), class: "button scrolly" %>
           </div>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </section>
 
   <!-- One -->
-  <section id="one" class="wrapper">
-    <div class="inner">
-      <div class="split style1 centered reversed">
-        <section>
-          <span class="image fit portrait"><img src="<%= static_path() %>/images/placeholders/pic02.jpg" alt="" /></span>
-        </section>
-        <section>
-          <h2>Adipiscing ornare risus morbi est est blandi magna vel euismod tempus</h2>
-          <div class="features">
-            <article class="icon fa-diamond">
-              <h3>Sed veroeros</h3>
-              <p>Lorem ipsum dolor sit amet nulla etiam feugiat sed adipiscing.</p>
-            </article>
-            <article class="icon fa-file-o">
-              <h3>Magna etiam</h3>
-              <p>Lorem ipsum dolor sit amet nulla etiam feugiat sed adipiscing.</p>
-            </article>
-            <article class="icon fa-clone">
-              <h3>Nulla consequat</h3>
-              <p>Lorem ipsum dolor sit amet nulla etiam feugiat sed adipiscing.</p>
-            </article>
-            <article class="icon fa-envelope-o">
-              <h3>Euismod morbi</h3>
-              <p>Lorem ipsum dolor sit amet nulla etiam feugiat sed adipiscing.</p>
-            </article>
-          </div>
-        </section>
-      </div>
-    </div>
-  </section>
+  <%= render "homepage-one.html", assigns %>
 
   <!-- Two -->
-  <section id="two" class="wrapper style1 special">
-    <div class="inner">
-      <div class="stats">
-        <article>
-          <h3><span>128</span> Sed magna</h3>
-          <p>Lorem ipsum dolor nulla feugiat adipiscing.</p>
-        </article>
-        <article>
-          <h3><span>640</span> Etiam dolor</h3>
-          <p>Lorem ipsum dolor nulla feugiat adipiscing.</p>
-        </article>
-        <article>
-          <h3><span>256</span> Nullam amet</h3>
-          <p>Lorem ipsum dolor nulla feugiat adipiscing.</p>
-        </article>
-        <article>
-          <h3><span>768</span> Sit euismod</h3>
-          <p>Lorem ipsum dolor nulla feugiat adipiscing.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+  <%= render "homepage-two.html", assigns %>
 
   <!-- Three -->
   <section id="three" class="wrapper">

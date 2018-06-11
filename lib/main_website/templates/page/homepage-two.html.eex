@@ -1,0 +1,23 @@
+<section id="two" class="wrapper style1 special">
+  <div class="inner">
+    <div class="row">
+      <%# TODO – add background iamges in cosmic
+      <a class="col" style="background-image:url('<%= @no_corp_pacs_background')"> %>
+      <%# <a class="col" style="background-image:url('<%= @medicare_for_all_background')"> %> 
+      <%# <a class="col" style="background-image:url('<%= @jobs_guarantee')"> %> 
+      <%# #%>
+      <a>
+        No Corp Pacs
+      </a>
+      <a>
+        Medicare for All
+      </a>
+      <a>
+        Jobs Guarantee
+      </a>
+    </div>
+    <div>
+    </div>
+  </div>
+</section>
+
